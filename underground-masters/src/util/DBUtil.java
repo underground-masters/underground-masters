@@ -35,46 +35,40 @@ public class DBUtil {
 		return DriverManager.getConnection(JDBC_URL, DB_USER, DB_PASSWORD);
 	}
 
-
 	/**
-     * SELECT 쿼리 실행, CachedRowSetImpl로 리턴 (리소스 안전하게 반납)
-     */
-	public static ResultSet dbExecuteQuery(String queryStmt, Object... params) throws SQLException, ClassNotFoundException {
+	 * SELECT 쿼리 실행, CachedRowSetImpl로 리턴 (리소스 안전하게 반납)
+	 */
+	public static ResultSet dbExecuteQuery(String queryStmt, Object... params)
+			throws SQLException, ClassNotFoundException {
 
 		CachedRowSetImpl crs = new CachedRowSetImpl();
 
-		try (
-			Connection conn = DriverManager.getConnection(JDBC_URL);
-			PreparedStatement pstmt = conn.prepareStatement(queryStmt);
-		) {
+		try (Connection conn = DriverManager.getConnection(JDBC_URL);
+				PreparedStatement pstmt = conn.prepareStatement(queryStmt);) {
 			// 파라미터 바인딩
 			for (int i = 0; i < params.length; i++) {
-	            pstmt.setObject(i + 1, params[i]);
-	        }
-			
+				pstmt.setObject(i + 1, params[i]);
+			}
+
 			// ResultSet 데이터를 CachedRowSetImpl에 복사
 			try (ResultSet rs = pstmt.executeQuery()) {
-	            crs.populate(rs);
-	        }
+				crs.populate(rs);
+			}
 		}
-		
+
 		return crs; // Connection, Statement, ResultSet 다 닫혀도 CachedRowSetImpl은 안전
 	}
 
-	
-    /**
-     * INSERT/UPDATE/DELETE 쿼리
-     */
+	/**
+	 * INSERT/UPDATE/DELETE 쿼리
+	 */
 	public static void dbExecuteUpdate(String procCall, Object... params) throws SQLException, ClassNotFoundException {
-		try (
-			Connection conn = getConnection(); 
-			CallableStatement cstmt = conn.prepareCall(procCall);
-		) {
+		try (Connection conn = getConnection(); CallableStatement cstmt = conn.prepareCall(procCall);) {
 			// 파라미터 바인딩
 			for (int i = 0; i < params.length; i++) {
 				cstmt.setObject(i + 1, params[i]);
 			}
-			
+
 			// 성공 여부
 			int cnt = cstmt.executeUpdate();
 			if (cnt > 0) {
