@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="540.0" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="416.0" layoutY="132.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="88.0" text="검색" />
+      <TableView layoutY="188.0" prefHeight="526.0" prefWidth="540.0">
+        <columns>
+          <TableColumn prefWidth="230.0" text="재능" />
+          <TableColumn prefWidth="138.0" text="고수" />
+            <TableColumn prefWidth="171.0" text="등록날짜" />
+        </columns>
+      </TableView>
+      <Button layoutX="33.0" layoutY="740.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="교환의 장" />
+      <Button layoutX="157.0" layoutY="740.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="받은 목록" />
+      <Button layoutX="281.0" layoutY="740.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="보낸 목록" />
+      <Button layoutX="404.0" layoutY="740.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="마이 페이지" />
+      <TextField layoutX="134.0" layoutY="132.0" prefHeight="33.0" prefWidth="270.0" style="-fx-font-size: 14;" />
+      <Label layoutX="149.0" layoutY="141.0" prefHeight="15.0" prefWidth="173.0" style="-fx-font-size: 12;" text="재능명, 고수명을 입력하세요." />
+      <ChoiceBox layoutX="33.0" layoutY="132.0" prefHeight="33.0" prefWidth="88.0" />
+      <Label layoutX="230.0" layoutY="82.0" text="화면이름">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="67.0" fitWidth="80.0" layoutX="185.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
+      <Button layoutX="420.0" layoutY="84.0" mnemonicParsing="false" text="교환글 등록" />
+      <ImageView fitHeight="76.0" fitWidth="125.0" layoutX="205.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
