@@ -1,15 +1,19 @@
 package model.member;
 
 import lombok.Builder;
-import lombok.Data;
+import lombok.Getter;
 
-@Data
+@Getter
 @Builder
-public class MemberDTO {
+public class Member {
 
 	private Integer memberId;
 	private String name;
 	private String email;
 	private String password;
 	private String phoneNumber;
+	
+	public boolean matchesPassword(String password) {
+		return this.password.equals(password);
+	}
 }
