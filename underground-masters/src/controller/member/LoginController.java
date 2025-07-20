@@ -50,7 +50,7 @@ public class LoginController implements Initializable {
 	
 	@FXML
 	public void signUpAction(ActionEvent event) {
-		SceneChanger.change(event, "/view/member/signUpView.fxml", "sign up");
+		SceneChanger.change(event, "/view/member/SignUpView.fxml", "sign up");
 	}
 	
 	public void loginService(String email, String password) 
