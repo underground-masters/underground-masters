@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.shape.Circle?>
+
+<AnchorPane prefWidth="540" prefHeight="800" style="-fx-background-color: #E2E0E0;">
+    <!-- 상단 프로필 이미지 -->
+    <ImageView layoutX="227.0" layoutY="0.0" fitWidth="87.0" fitHeight="87.0">
+        <Image url="https://placehold.co/87x87" />
+    </ImageView>
+    <Label layoutX="224.0" layoutY="111.0" text="교환의 장" style="-fx-font-size:19px;-fx-font-family:Inter;-fx-font-weight:400;" />
+
+    <!-- 검색 바 -->
+    <TextField layoutX="28.0" layoutY="155.0" prefWidth="99.0" prefHeight="46.0" />
+    <TextField layoutX="143.0" layoutY="155.0" prefWidth="250.0" prefHeight="46.0" />
+    <Button layoutX="415.0" layoutY="155.0" prefWidth="104.0" prefHeight="46.0"
+            style="-fx-background-color: #2C2C2C; -fx-text-fill: white; -fx-font-size:19px; -fx-font-family:Inter; -fx-font-weight:400; -fx-background-radius:8;">
+        검색
+    </Button>
+    <Label layoutX="41.0" layoutY="168.0" text="선택" style="-fx-font-size:17px;-fx-text-fill:#525252;" />
+
+    <!-- 테이블형 교환 리스트 -->
+    <HBox layoutX="0.0" layoutY="233.0">
+        <VBox prefWidth="200.0">
+            <!-- 첫 행 -->
+            <HBox style="-fx-background-color: #C8C8C8; -fx-border-color: #DCDCDC; -fx-border-width:0 0 1 0;">
+                <Label text="교환할 재능" style="-fx-padding: 10 0 10 16; -fx-font-size:14px; -fx-text-fill:#525252;" prefWidth="180.0"/>
+            </HBox>
+            <!-- 두 번째 행 -->
+            <HBox style="-fx-background-color: #FDFDFD; -fx-border-color: #DCDCDC; -fx-border-width:0 0 1 0;">
+                <Label text="피아노" style="-fx-padding: 10 0 10 16; -fx-font-size:14px; -fx-text-fill:#525252;" prefWidth="180.0"/>
+            </HBox>
+            <!-- 세 번째 행 -->
+            <HBox style="-fx-background-color: #F6F6F6; -fx-border-color: #DCDCDC; -fx-border-width:0 0 1 0;">
+                <Label text="컴퓨터 조립" style="-fx-padding: 10 0 10 16; -fx-font-size:14px; -fx-text-fill:#525252;" prefWidth="180.0"/>
+            </HBox>
+            <!-- 네 번째 행 -->
+            <HBox style="-fx-background-color: #FDFDFD; -fx-border-color: #DCDCDC; -fx-border-width:0 0 1 0;">
+                <Label text="그래픽 디자인" style="-fx-padding: 10 0 10 16; -fx-font-size:14px; -fx-text-fill:#525252;" prefWidth="180.0"/>
+            </HBox>
+        </VBox>
+        <VBox prefWidth="200.0">
+            <!-- 첫 행 -->
+            <HBox style="-fx-background-color: #C8C8C8; -fx-border-color: #DCDCDC; -fx-border-width: 0 1 1 0;">
+                <Label text="고수" style="-fx-padding: 10 0 10 16; -fx-font-size:14px; -fx-text-fill:#525252;" prefWidth="180.0"/>
+            </HBox>
+            <!-- 두 번째 행 -->
+            <HBox style="-fx-background-color: #FDFDFD; -fx-border-color: #DCDCDC; -fx-border-width: 0 1 1 0;">
+                <Label text="나고수" style="-fx-padding: 10 0 10 16; -fx-font-size:14px; -fx-text-fill:#525252; -fx-font-weight:bold;" prefWidth="180.0"/>
+            </HBox>
+            <!-- 세 번째 행 -->
+            <HBox style="-fx-background-color: #FDFDFD; -fx-border-color: #DCDCDC; -fx-border-width: 0 1 1 0;">
+                <Label text="나중수" style="-fx-padding: 10 0 10 16; -fx-font-size:14px; -fx-text-fill:#525252; -fx-font-weight:bold;" prefWidth="180.0"/>
+            </HBox>
+            <!-- 네 번째 행 -->
+            <HBox style="-fx-background-color: #FDFDFD; -fx-border-color: #DCDCDC; -fx-border-width: 0 1 1 0;">
+                <Label text="나하수" style="-fx-padding: 10 0 10 16; -fx-font-size:14px; -fx-text-fill:#525252; -fx-font-weight:bold;" prefWidth="180.0"/>
+            </HBox>
+        </VBox>
+    </HBox>
+
+    <!-- 플로팅 +버튼(동그란 배경) -->
+    <Circle layoutX="490.0" layoutY="662.0" radius="29.0" fill="white" />
+    <!-- 임의의 아이콘 이미지를 쓸 수 있음 -->
+    <ImageView layoutX="466.0" layoutY="638.0" fitWidth="48.0" fitHeight="48.0">
+        <!-- <Image url="your-icon-url-here" /> -->
+    </ImageView>
+
+    <!-- 하단 탭/내비게이션, 하얀 배경 영역 -->
+    <Pane layoutX="0.0" layoutY="709.0" prefWidth="540.0" prefHeight="91.0"
+          style="-fx-background-color: white; -fx-background-radius: 10;" />
+
+    <!-- 하단 4개 버튼 영역 (그냥 Label로 표기)-->
+    <Pane layoutX="21.0" layoutY="732.0" prefWidth="105.0" prefHeight="46.0"
+          style="-fx-background-color:#E2E0E0; -fx-background-radius:5;" />
+    <Label layoutX="35.0" layoutY="745.0" text="교환의 장" style="-fx-font-size:19px;"/>
+    <Pane layoutX="152.0" layoutY="732.0" prefWidth="105.0" prefHeight="46.0"
+          style="-fx-background-color:#E2E0E0; -fx-background-radius:5;" />
+    <Label layoutX="166.0" layoutY="745.0" text="받은 목록" style="-fx-font-size:19px;"/>
+    <Pane layoutX="283.0" layoutY="732.0" prefWidth="105.0" prefHeight="46.0"
+          style="-fx-background-color:#E2E0E0; -fx-background-radius:5;" />
+    <Label layoutX="297.0" layoutY="745.0" text="보낸 목록" style="-fx-font-size:19px;"/>
+    <Pane layoutX="414.0" layoutY="732.0" prefWidth="105.0" prefHeight="46.0"
+          style="-fx-background-color:#E2E0E0; -fx-background-radius:5;" />
+    <Label layoutX="420.0" layoutY="745.0" text="마이 페이지" style="-fx-font-size:19px;"/>
+</AnchorPane>
