@@ -25,8 +25,11 @@
       	
       	<Label layoutX="84.0" layoutY="428.0" style="-fx-font-size: 16;" text="패스워드" />
 		<PasswordField fx:id="passwordField" layoutX="159.0" layoutY="415.0" prefHeight="46.0" prefWidth="281.0" style="-fx-font-size: 14;" />
-				   
-		<Button fx:id="loginButton" layoutX="142.0" layoutY="508.0" onAction="#loginAction" prefHeight="40.0" prefWidth="105.0" style="-fx-font-size: 14;" text="로그인" />
-		<Button fx:id="signUpButton" layoutX="294.0" layoutY="508.0" onAction="#signUpAction" prefHeight="40.0" prefWidth="105.0" style="-fx-font-size: 14;" text="회원 가입" />
+		
+		<!-- 오류 메시지를 보여줄 Label -->
+	    <Label fx:id="lblError" layoutX="130.0" layoutY="497.0" prefWidth="280" textFill="red" wrapText="true" />
+		
+		<Button fx:id="loginButton" layoutX="142.0" layoutY="540.0" onAction="#loginAction" prefHeight="40.0" prefWidth="105.0" style="-fx-font-size: 14;" text="로그인" />
+		<Button fx:id="signUpButton" layoutX="294.0" layoutY="540.0" onAction="#signUpAction" prefHeight="40.0" prefWidth="105.0" style="-fx-font-size: 14;" text="회원 가입" />
 	</children>
 </AnchorPane>

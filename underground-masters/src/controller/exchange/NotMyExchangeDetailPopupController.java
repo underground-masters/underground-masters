@@ -12,6 +12,10 @@ import model.exchange.ExchangeDAO;
 import model.exchange.ExchangeDTO;
 
 public class NotMyExchangeDetailPopupController extends ExchangeDetailPopupController {
+	
+	private final ExchangeDAO exchangeDAO = new ExchangeDAO(); // 공유
+	
+	// MyExchangeDetailPopup.fxml에서 찾아서 등록
 	@FXML private Label exchangeDetailLabel;
 	@FXML private ComboBox<String> talentComboBox;
 	
@@ -20,7 +24,7 @@ public class NotMyExchangeDetailPopupController extends ExchangeDetailPopupContr
 		// 콤보박스에 재능 리스트 조회
 		ObservableList<String> talentList;
 		try {
-			talentList = ExchangeDAO.findTalentList();
+			talentList = exchangeDAO.findTalentList();
 			talentComboBox.setItems(talentList);
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
