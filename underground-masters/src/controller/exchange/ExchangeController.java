@@ -1,9 +1,13 @@
 package controller.exchange;
 
+import java.io.IOException;
 import java.net.URL;
+import java.rmi.server.LoaderHandler;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.ResourceBundle;
+
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.Loader;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -14,17 +18,20 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import model.exchange.ExchangeDAO;
 import model.exchange.ExchangeDTO;
 
 public class ExchangeController implements Initializable {
 	
 	// ExchangeListView.fxml에서 찾아서 등록
-	@FXML private TableView<ExchangeDTO> exchangeTableView;
+	@FXML private TableView<ExchangeDTO> exchangeTableView; // TableView
 	@FXML private TableColumn<ExchangeDTO, String> talentName;
 	@FXML private TableColumn<ExchangeDTO, String> memberName;
 	@FXML private TableColumn<ExchangeDTO, Date> createAt;
@@ -73,28 +80,74 @@ public class ExchangeController implements Initializable {
 		
 	}
 	
+	/**
+	 * 테이블뷰의 행을 더블클릭했을 때 팝업창을 띄워 교환글 상세를 보여주는 메서드
+	 */
+	@FXML
+	private void onShowDetail(MouseEvent event) throws IOException {
+		// 0. 더블클릭(2번 클릭)이 아닐 때는 아무 것도 하지 않고 끝냄
+	    if (event.getClickCount() != 2)
+	        return;
+
+	    // 테이블뷰에서 현재 선택된 ExchangeDTO 객체를 꺼냄
+	    ExchangeDTO exchangeDTO = exchangeTableView.getSelectionModel().getSelectedItem();
+	    
+	    
+	    String directory = "";
+	    int memberId = 1; //TODO
+	    System.out.println(exchangeDTO.getMemberId().get());
+	    if (memberId == exchangeDTO.getMemberId().get()) { // 현재 로그인한 ID와 더블클릭한 데이터의 member ID가 같으면 MyExchangeDetailPopup 열기
+	    	directory = "/view/exchange/MyExchangeDetailPopup.fxml";
+	    } else { // 다르면 NotMyExchangeDetailPopup 열기
+	    	directory = "/view/exchange/NotMyExchangeDetailPopup.fxml";
+	    }
+	    
+	    
+	    // 1. FXML 파일을 로딩할 FXMLLoader 객체를 생성 (이 시점에 컨트롤러 객체 "생성"도 준비됨)
+	    FXMLLoader loader = new FXMLLoader(getClass().getResource(directory));
+	    Parent popupRoot = loader.load();
+
+	    // 팝업화면 전용 컨트롤러 객체를 받아옴
+	    ExchangeDetailPopupController popupController = loader.getController();
+	    popupController.setExchangeData(exchangeDTO); // 팝업 컨트롤러에 데이터 전달 (팝업 라벨에 값 세팅)
+	    
+	    // 2. 새로운 Stage 생성
+	    Stage exchangeDetailPopupStage = new Stage();
+
+	    // 3. 모달창으로 만들기(부모창 클릭 차단)
+	    exchangeDetailPopupStage.initModality(Modality.WINDOW_MODAL);
+
+	    // 4. 팝업창 옵션
+	    exchangeDetailPopupStage.setTitle("교환글 상세 조회");
+
+	    // 5. 팝업에 Scene 할당, 크기 고정, 팝업창 띄우기
+	    exchangeDetailPopupStage.setScene(new Scene(popupRoot));
+	    exchangeDetailPopupStage.setResizable(false);
+	    exchangeDetailPopupStage.show();
+	}
+	
 	/*
 	 * 교환글 등록 팝업창 
 	 */
 	@FXML
 	private void onShowRegisterExchangePopupBtn(ActionEvent event) {
 		try {
-			// 1. FXML 로드
+			// 1. FXML 파일을 로딩할 FXMLLoader 객체를 생성
 			Parent popupRoot = FXMLLoader.load(getClass().getResource("/view/exchange/CreateExchangePopup.fxml"));
 			
 			// 2. 새로운 Stage 생성
-			Stage popupStage = new Stage();
+			Stage createExchangePopupStage = new Stage();
 			
 			// 3. 모달창으로 만들기(부모창 클릭 차단)
-			popupStage.initModality(Modality.WINDOW_MODAL);
+			createExchangePopupStage.initModality(Modality.WINDOW_MODAL);
 			
 			// 4. 팝업창 옵션
-			popupStage.setTitle("교환글 등록");
+			createExchangePopupStage.setTitle("교환글 등록");
 			
 			// 5. Scene 세팅 및 show
-			popupStage.setScene(new Scene(popupRoot));
-			popupStage.setResizable(false);
-			popupStage.show();
+			createExchangePopupStage.setScene(new Scene(popupRoot));
+			createExchangePopupStage.setResizable(false);
+			createExchangePopupStage.show();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
