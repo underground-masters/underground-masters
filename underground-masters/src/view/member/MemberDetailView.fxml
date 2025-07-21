@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+
+<AnchorPane fx:controller="controller.member.MemberDetailController" maxHeight="-Infinity" maxWidth="-Infinity" 
+			minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="540.0" 
+			style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+   	  <ImageView fitHeight="99.0" fitWidth="152.0" layoutX="194.0" layoutY="27.0">
+         <image>
+            <Image url="@../util/images/logo_gray.png" />
+         </image>
+      </ImageView>
+      
+      <Label layoutX="204.0" layoutY="186.0" text="회원 정보 조회">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      
+      <Label layoutX="86.0" layoutY="302.0" style="-fx-font-size: 14;" text="고수 이름" />
+      <Label fx:id="nameLabel" layoutX="204.0" layoutY="299.0" prefHeight="25.0" prefWidth="245.0" style="-fx-font-size: 20;" text="[이름]" />
+      
+      <Label layoutX="105.0" layoutY="380.0" style="-fx-font-size: 14;" text="이메일" />
+      <Label fx:id="emailLabel" layoutX="204.0" layoutY="377.0" prefHeight="25.0" prefWidth="245.0" style="-fx-font-size: 20;" text="[이메일]" />
+      
+      <Label layoutX="105.0" layoutY="462.0" style="-fx-font-size: 14;" text="핸드폰" />
+      <Label fx:id="phoneNumberLabel" layoutX="204.0" layoutY="459.0" prefHeight="25.0" prefWidth="245.0" style="-fx-font-size: 20;" text="[핸드폰]" />
+      
+      <Button onAction="#memberModifyAction" layoutX="226.0" layoutY="606.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="88.0" text="정보 수정" />
+   </children>
+</AnchorPane>
