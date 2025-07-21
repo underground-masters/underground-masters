@@ -1,19 +1,23 @@
 package controller.exchange;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import model.exchange.ExchangeDAO;
 import model.exchange.ExchangeDTO;
+import model.matching.MatchingDAO;
 
 public class NotMyExchangeDetailPopupController extends ExchangeDetailPopupController {
 	
 	private final ExchangeDAO exchangeDAO = new ExchangeDAO(); // 공유
+	private final MatchingDAO matchingDAO = new MatchingDAO();
 	
 	// MyExchangeDetailPopup.fxml에서 찾아서 등록
 	@FXML private Label exchangeDetailLabel;
@@ -33,9 +37,32 @@ public class NotMyExchangeDetailPopupController extends ExchangeDetailPopupContr
 		}	
 	}
 	
+	/**
+	 * 라벨에 데이터 매핑하는 메서드
+	 */
 	@Override
     public void setExchangeData(ExchangeDTO exchangeDTO) {
-        // 부모 메서드를 이용해서 라벨 세팅
-        doLabelSetting(exchangeDetailLabel, exchangeDTO);
+		
+		// 부모(ExchangeDetailPopupController)의 필드에 저장
+		setExchangeDTO(exchangeDTO); 
+        
+		// 부모 메서드를 이용해서 라벨 세팅
+		doLabelSetting(exchangeDetailLabel, exchangeDTO);
     }
+	
+	/**
+	 * 매칭 요청 버튼 클릭 메서드
+	 * @param event
+	 * @throws IOException
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
+	 */
+	@FXML
+	public void onClickMatchingRequestBtn(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
+		ExchangeDTO exchangeDTO = getExchangeDTO(); // 부모(ExchangeDetailPopupController)의 DTO 전달
+		int exchangeId = exchangeDTO.getExchangeId().get(); // 교환글 id
+		String selectedTalent = talentComboBox.getValue();  // 선택한 재능
+		
+		matchingDAO.createMatching(exchangeId, selectedTalent); // DB에 저장
+	}
 }

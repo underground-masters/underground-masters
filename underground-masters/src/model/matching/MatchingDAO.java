@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.exchange.ExchangeDTO;
 import util.DBUtil;
 
 public class MatchingDAO {
@@ -41,4 +42,17 @@ public class MatchingDAO {
 
         return list;
     }
+    
+	/**
+	 * 매칭 등록 메서드
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
+	 */
+	public void createMatching(int exchangeId, String talentName) throws ClassNotFoundException, SQLException {
+		String insertStmt = "{ call create_matching(?, ?, ?) }"; // exchangeId, talentName, memberId로 저장
+		int memberId = 1; //TODO: 임시 데이터(현재 접속한 ID값으로 바꾸기)
+
+		// DB에 교환글 등록하기
+		DBUtil.dbExecuteUpdate(insertStmt, exchangeId, talentName, memberId);
+	}
 }

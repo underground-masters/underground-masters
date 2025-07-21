@@ -28,10 +28,13 @@ public class MyExchangeDetailPopupController extends ExchangeDetailPopupControll
 		
 	}
 	
+	/**
+	 * 라벨에 데이터 매핑하는 메서드
+	 */
 	@Override
     public void setExchangeData(ExchangeDTO exchangeDTO) {
 		
-		// 부모(ExchangeDetailPopupController)의 필드에만 저장
+		// 부모(ExchangeDetailPopupController)의 필드에 저장
 		setExchangeDTO(exchangeDTO); 
 		
         // 부모 메서드를 이용해서 라벨 세팅
