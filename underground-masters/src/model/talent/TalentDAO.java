@@ -46,7 +46,7 @@ public class TalentDAO {
     }
 
     public void deleteTalent(int talentId) {
-        String sql = "DELETE FROM talent WHERE talent_id = ?";
+        String sql = "UPDATE talent SET is_delete = 'Y', update_at = SYSDATE WHERE talent_id = ?";
         try {
             DBUtil.dbExecuteUpdate(sql, talentId);
         } catch (Exception e) {
