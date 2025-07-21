@@ -1,6 +1,9 @@
 package util;
 
+import java.sql.SQLException;
+
 import model.member.Member;
+import model.member.MemberDAO;
 
 public class AuthenticationSession {
 	
@@ -23,5 +26,9 @@ public class AuthenticationSession {
 
     public boolean isAuthenticated() {
         return member != null;
+    }
+    
+    public void reload(MemberDAO memberDao) throws ClassNotFoundException, SQLException {
+    	setMember(memberDao.findByEmail(this.member.getEmail()));
     }
 }

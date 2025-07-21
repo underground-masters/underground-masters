@@ -1,54 +1,72 @@
 package controller.member;
 
 import java.net.URL;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.NoSuchElementException;
 import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import model.member.Member;
+import model.member.MemberDAO;
 import util.AuthenticationSession;
-import util.DBUtil;
 import util.SceneChanger;
 
 public class LoginController implements Initializable {
 
+	private MemberDAO memberDao;
+	
 	@FXML private TextField emailField;
 	@FXML private PasswordField passwordField;
+	
+	@FXML private Label lblError;          // 오류 메시지 라벨
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		// TODO Auto-generated method stub
-		
+		memberDao = MemberDAO.getInstance();
 	}
 
 	@FXML
 	public void loginAction(ActionEvent event) {
+		
+		// 오류 초기화
+        lblError.setText("");
+		
 		String email = emailField.getText();
 		String password = passwordField.getText();
 		
 		try {
 			loginService(email, password);
-			
-			// 로그인에 성공하면, 교환의 장 목록 페이지로 이동.
-			Member member = AuthenticationSession.getInstance().getMember();
-			
+						
+			Member member = AuthenticationSession.getInstance().getMember();			
 			System.out.println(AuthenticationSession.getInstance().isAuthenticated());
-			System.out.println(member.getClass());
+			System.out.println(member.getClass());			
 			
 //			// 20250721 ycson 로그인 성공 후 나의 재능 목록 페이지로 전환 코드 줄 45~47
 //	        if (AuthenticationSession.getInstance().isAuthenticated()) {
 //	            SceneChanger.change(event, "/view/talent/TalentListView.fxml", "나의 재능 관리");
 //	        }
+<<<<<<< HEAD
+//			// 20250721 ycson 로그인 성공 후 나의 재능 목록 페이지로 전환 코드 줄 45~47
+//	        if (AuthenticationSession.getInstance().isAuthenticated()) {
+//	            SceneChanger.change(event, "/view/talent/TalentListView.fxml", "나의 재능 관리");
+//	        }
+=======
+			// [update] 로그인에 성공하면, 교환의 장 목록 페이지로 이동하도록 수정.
+			SceneChanger.change(event, "/view/member/MyPageView.fxml", "My Page");
+>>>>>>> feature/mypage
 			
-		} catch (ClassNotFoundException | SQLException exception) {
-			// TODO Auto-generated catch block
-			exception.printStackTrace();
+		} catch (ValidationException ex) {
+			// 검증 예외: 메시지만 사용자에게 보여줌
+			lblError.setText(ex.getMessage());
+		} catch (ClassNotFoundException | SQLException ex) {
+			// db 오류
+			ex.printStackTrace();
+			lblError.setText("로그인 중 오류가 발생했습니다.");
 		}
 	}
 	
@@ -60,21 +78,18 @@ public class LoginController implements Initializable {
 	public void loginService(String email, String password) 
 			throws ClassNotFoundException, SQLException {
 		
-		Member member;
-		String query = "SELECT * FROM member m WHERE m.email = ? AND m.password = ?";
-
-		ResultSet resultSet = DBUtil.dbExecuteQuery(query, email, password);
-		if(resultSet.next()) {
-			member = Member.builder()
-					.memberId(resultSet.getInt("member_id"))
-					.name(resultSet.getString("name"))
-					.email(resultSet.getString("email"))
-					.phoneNumber(resultSet.getString("phone_number"))
-					.build();		
-		} else {
-			throw new NoSuchElementException("member not found. (email = " + email + ")");
-		}
+		Member member = memberDao.findByEmail(email);
+		if (member == null || !member.matchesPassword(password)) {
+			throw new ValidationException("로그인 정보를 확인해주세요.");
+		}			
 		
-		AuthenticationSession.getInstance().setMember(member);
+		AuthenticationSession.getInstance().setMember(member);		
 	}
+	
+	// 검증 전용 예외
+    private static class ValidationException extends RuntimeException {
+        ValidationException(String message) {
+            super(message);
+        }
+    }
 }
