@@ -14,7 +14,7 @@
         <!-- 상단 프로필 -->
         <ImageView fitHeight="87.0" fitWidth="87.0" layoutX="227.0" layoutY="0.0">
             <image>
-                <Image url="https://placehold.co/87x87" />
+                <Image url="@../util/images/logo_gray.png" />
             </image>
         </ImageView>
         <Label layoutX="207.0" layoutY="116.0" style="-fx-font-size:19px;-fx-font-family:Inter;-fx-font-weight:400;" text="나의 재능 관리" />
