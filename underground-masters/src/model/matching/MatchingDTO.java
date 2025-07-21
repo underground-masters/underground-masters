@@ -6,8 +6,12 @@ import lombok.Setter;
 @Getter
 @Setter
 public class MatchingDTO {
-    private String talentName;     // 상대 재능
-    private String memberName;     // 상대 고수
-    private String status;         // 상태 (대기, 수락, 거절)
-    private String requestDate;    // 신청 날짜
+    private int matchingId;             // m.MATCHING_ID
+    private String requestedTalent;     // m.TALENT_NAME AS REQUESTED_TALENT
+    private String status;              // m.STATUS
+    private String requestDate;         // m.CREATE_AT AS REQUEST_DATE
+    private String requesterName;       // req.NAME AS REQUESTER_NAME
+    private String requesterEmail;      // req.EMAIL AS REQUESTER_EMAIL
+    private String exchangeTitle;       // e.TITLE AS EXCHANGE_TITLE
+    private String exchangeContent;     // e.CONTENT AS EXCHANGE_CONTENT
 }
