@@ -41,6 +41,10 @@ public class LoginController implements Initializable {
 			System.out.println(AuthenticationSession.getInstance().isAuthenticated());
 			System.out.println(member.getClass());
 			
+//			// 20250721 ycson 로그인 성공 후 나의 재능 목록 페이지로 전환 코드 줄 45~47
+//	        if (AuthenticationSession.getInstance().isAuthenticated()) {
+//	            SceneChanger.change(event, "/view/talent/TalentListView.fxml", "나의 재능 관리");
+//	        }
 			
 		} catch (ClassNotFoundException | SQLException exception) {
 			// TODO Auto-generated catch block
