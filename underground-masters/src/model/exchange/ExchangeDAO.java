@@ -21,7 +21,7 @@ public class ExchangeDAO {
 		ObservableList<ExchangeDTO> exchangeList = FXCollections.observableArrayList(); // 교환글 담을 리스트
 		
 		// DB에서 교환글 리스트 불러오기
-		String selectStmt = "SELECT TITLE, MEMBER_ID, CREATE_AT FROM MASTERS.EXCHANGE";
+		String selectStmt = "SELECT TITLE, CONTENT, MEMBER_ID, CREATE_AT FROM MASTERS.EXCHANGE";
 		ResultSet resultSet = DBUtil.dbExecuteQuery(selectStmt);
 		
 		// resultSet에 담겨있는 교환글 리스트를 exchangeList에 담기
@@ -37,6 +37,7 @@ public class ExchangeDAO {
 		while (resultSet.next()) { // resultSet 순회하면서 exchangeDTO로 담기
 			ExchangeDTO exchangeDTO = ExchangeDTO.builder()
 					.title(new SimpleStringProperty(resultSet.getString("TITLE")))
+					.content(new SimpleStringProperty(resultSet.getString("CONTENT")))
 					.memberId(new SimpleIntegerProperty(resultSet.getInt("MEMBER_ID")))
 					.createAt(new SimpleObjectProperty<>(resultSet.getDate("CREATE_AT")))
 					.build();
@@ -54,7 +55,7 @@ public class ExchangeDAO {
 	public static ObservableList<String> findTalentList() throws ClassNotFoundException, SQLException {
 		ObservableList<String> talentList = FXCollections.observableArrayList(); // 내가 보유하고 있는 재능을 담을 리스트
 		
-		int memberId = 1; // TODO: 임시 데이터(현재 접속한 ID값으로 바꾸기)
+		int memberId = 2; // TODO: 임시 데이터(현재 접속한 ID값으로 바꾸기)
 		
 		// DB에서 재능 리스트 불러오기
 		String selectStmt = "SELECT NAME FROM MASTERS.TALENT WHERE MEMBER_ID = ?";
@@ -86,7 +87,7 @@ public class ExchangeDAO {
 	 */
 	public static void createExchange(String selectedTalent, String description) throws ClassNotFoundException, SQLException {
 		String insertStmt = "{ call create_exchange(?, ?, ?) }"; // 재능, 상세설명, 멤버id
-		int memberId = 1; //TODO: 임시 데이터(현재 접속한 ID값으로 바꾸기)
+		int memberId = 2; //TODO: 임시 데이터(현재 접속한 ID값으로 바꾸기)
 		
 		// DB에 교환글 등록하기
 		DBUtil.dbExecuteUpdate(insertStmt, selectedTalent, description, memberId);
