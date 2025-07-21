@@ -40,34 +40,33 @@ public class TalentListController {
             Label nameLabel = new Label(talent.getName());
             nameLabel.setPrefWidth(180.0);
             nameLabel.setStyle("-fx-padding: 10 0 10 16; -fx-font-size:14px; -fx-text-fill:#525252;");
+            nameLabel.setOnMouseClicked(e -> {
+                if (e.getClickCount() == 2) {
+                    openTalentDetailPopup(talent);
+                }
+            });
 
             Label dateLabel = new Label(talent.getCreatedAt());
             dateLabel.setPrefWidth(180.0);
             dateLabel.setStyle("-fx-padding: 10 0 10 16; -fx-font-size:14px; -fx-text-fill:#525252; -fx-font-weight:bold;");
-
-            // 👉 더블 클릭 이벤트 핸들링
-            nameLabel.setOnMouseClicked(event -> {
-                if (event.getClickCount() == 2) {
-                    openDetailPopup(talent);
-                }
-            });
 
             talentNameBox.getChildren().add(nameLabel);
             talentDateBox.getChildren().add(dateLabel);
         }
     }
 
-    private void openDetailPopup(TalentDTO talent) {
+    private void openTalentDetailPopup(TalentDTO talent) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TalentDetailPopup.fxml"));
             Parent root = loader.load();
 
             TalentDetailPopupController controller = loader.getController();
-            controller.setTalent(talent); // 데이터 전달
+            controller.setTalent(talent);
+            controller.setTalentListController(this);
 
             Stage stage = new Stage();
             stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("재능 상세보기");
+            stage.setTitle("재능 상세");
             stage.setScene(new Scene(root));
             stage.showAndWait();
         } catch (IOException e) {
@@ -91,7 +90,6 @@ public class TalentListController {
             stage.showAndWait();
 
             loadTalentList();
-
         } catch (IOException e) {
             e.printStackTrace();
         }

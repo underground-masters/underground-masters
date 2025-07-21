@@ -2,25 +2,57 @@ package controller.talent;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
-import model.talent.TalentDTO;
+import javafx.stage.Stage;
+import model.talent.*;
 
 public class TalentDetailPopupController {
 
     @FXML
     private TextField talentNameField;
 
-    private TalentDTO talent;
+    private TalentDTO talentDTO; // 선택된 재능 정보
+    private TalentListController talentListController; // 목록 갱신용
 
-    public void setTalent(TalentDTO talent) {
-        this.talent = talent;
-        loadTalentDetails();
+    public void setTalent(TalentDTO talentDTO) {
+        this.talentDTO = talentDTO;
+        talentNameField.setText(talentDTO.getName());
     }
 
-    private void loadTalentDetails() {
-        if (talent != null) {
-            talentNameField.setText(talent.getName());
+    public void setTalentListController(TalentListController controller) {
+        this.talentListController = controller;
+    }
+
+    @FXML
+    private void onUpdateClicked() {
+        String newName = talentNameField.getText().trim();
+        if (newName.isEmpty()) {
+            System.out.println("재능 이름을 입력해주세요.");
+            return;
         }
+
+        talentDTO.setName(newName);
+        new TalentDAO().updateTalent(talentDTO); // DB 업데이트
+
+        if (talentListController != null) {
+            talentListController.loadTalentList(); // 목록 갱신
+        }
+
+        closeWindow();
     }
 
-    // 수정 및 삭제 버튼 핸들러는 나중에 구현 예정
+    @FXML
+//    private void onDeleteClicked() {
+//        new TalentDAO().deleteTalent(talentDTO.getTalentId()); // DB에서 삭제 처리
+//
+//        if (talentListController != null) {
+//            talentListController.loadTalentList(); // 목록 갱신
+//        }
+//
+//        closeWindow();
+//    }
+
+    private void closeWindow() {
+        Stage stage = (Stage) talentNameField.getScene().getWindow();
+        stage.close();
+    }
 }
