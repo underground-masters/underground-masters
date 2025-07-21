@@ -10,7 +10,7 @@ import javafx.scene.input.MouseEvent;
 
 import java.util.List;
 
-public class TalentController {
+public class TalentListController {
 
     @FXML private VBox talentNameBox;
     @FXML private VBox talentDateBox;
