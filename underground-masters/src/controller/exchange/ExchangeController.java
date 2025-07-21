@@ -151,7 +151,11 @@ public class ExchangeController implements Initializable {
 			// 5. Scene 세팅 및 show
 			createExchangePopupStage.setScene(new Scene(popupRoot));
 			createExchangePopupStage.setResizable(false);
-			createExchangePopupStage.show();
+			
+			 // 6. 팝업창이 닫힐때 까지 대기
+			createExchangePopupStage.showAndWait();
+		    exchangeTableView.setItems(exchangeDAO.findExchangeList()); // 닫히고 나면 테이블 뷰 reload
+			
 			
 		} catch (Exception e) {
 			e.printStackTrace();
