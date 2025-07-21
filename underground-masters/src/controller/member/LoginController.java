@@ -41,24 +41,9 @@ public class LoginController implements Initializable {
 		
 		try {
 			loginService(email, password);
-						
-			Member member = AuthenticationSession.getInstance().getMember();			
-			System.out.println(AuthenticationSession.getInstance().isAuthenticated());
-			System.out.println(member.getClass());			
 			
-//			// 20250721 ycson 로그인 성공 후 나의 재능 목록 페이지로 전환 코드 줄 45~47
-//	        if (AuthenticationSession.getInstance().isAuthenticated()) {
-//	            SceneChanger.change(event, "/view/talent/TalentListView.fxml", "나의 재능 관리");
-//	        }
-<<<<<<< HEAD
-//			// 20250721 ycson 로그인 성공 후 나의 재능 목록 페이지로 전환 코드 줄 45~47
-//	        if (AuthenticationSession.getInstance().isAuthenticated()) {
-//	            SceneChanger.change(event, "/view/talent/TalentListView.fxml", "나의 재능 관리");
-//	        }
-=======
 			// [update] 로그인에 성공하면, 교환의 장 목록 페이지로 이동하도록 수정.
 			SceneChanger.change(event, "/view/member/MyPageView.fxml", "My Page");
->>>>>>> feature/mypage
 			
 		} catch (ValidationException ex) {
 			// 검증 예외: 메시지만 사용자에게 보여줌
