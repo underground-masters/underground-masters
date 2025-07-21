@@ -1,6 +1,5 @@
 package controller.talent;
 
-import model.talent.TalentDTO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -10,9 +9,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import model.talent.TalentDAO;
+import model.talent.*;
 import util.AuthenticationSession;
-
 import java.io.IOException;
 import java.util.List;
 
@@ -47,8 +45,33 @@ public class TalentListController {
             dateLabel.setPrefWidth(180.0);
             dateLabel.setStyle("-fx-padding: 10 0 10 16; -fx-font-size:14px; -fx-text-fill:#525252; -fx-font-weight:bold;");
 
+            // 👉 더블 클릭 이벤트 핸들링
+            nameLabel.setOnMouseClicked(event -> {
+                if (event.getClickCount() == 2) {
+                    openDetailPopup(talent);
+                }
+            });
+
             talentNameBox.getChildren().add(nameLabel);
             talentDateBox.getChildren().add(dateLabel);
+        }
+    }
+
+    private void openDetailPopup(TalentDTO talent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TalentDetailPopup.fxml"));
+            Parent root = loader.load();
+
+            TalentDetailPopupController controller = loader.getController();
+            controller.setTalent(talent); // 데이터 전달
+
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("재능 상세보기");
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -58,7 +81,6 @@ public class TalentListController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CreateTalentPopup.fxml"));
             Parent root = loader.load();
 
-            // 팝업 컨트롤러에 현재 컨트롤러 넘겨줌
             CreateTalentPopupController popupController = loader.getController();
             popupController.setTalentListController(this);
 
@@ -68,7 +90,6 @@ public class TalentListController {
             stage.setScene(new Scene(root));
             stage.showAndWait();
 
-            // 팝업 닫힌 뒤 재능 목록 다시 로딩
             loadTalentList();
 
         } catch (IOException e) {
