@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.layout.*?>
@@ -9,64 +10,44 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.shape.Circle?>
 
-<AnchorPane prefHeight="800.0" prefWidth="540.0" style="-fx-background-color: #E2E0E0;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.talent.TalentListController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="540.0" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.talent.TalentListController">
     <children>
-        <!-- 상단 프로필 -->
-        <ImageView fitHeight="87.0" fitWidth="87.0" layoutX="227.0" layoutY="0.0">
-            <image>
-                <Image url="@../util/images/logo_gray.png" />
-            </image>
-        </ImageView>
-        <Label layoutX="207.0" layoutY="116.0" style="-fx-font-size:19px;-fx-font-family:Inter;-fx-font-weight:400;" text="나의 재능 관리" />
+
+      <!-- 상단 로고 이미지 -->
+      <ImageView fitHeight="87.0" fitWidth="87.0" layoutX="227.0" layoutY="0.0">
+         <image>
+            <Image url="@../util/images/logo_gray.png" />
+         </image>
+      </ImageView>
+
+      <!-- 제목 -->
+      <Label layoutX="230.0" layoutY="82.0" text="나의 재능 관리">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
 
         <!-- 재능 목록 표시 영역 -->
-        <HBox layoutX="0.0" layoutY="233.0">
-            <children>
-                <VBox fx:id="talentNameBox" prefHeight="400.0" prefWidth="340.0">
-                    <children>
-                        <HBox style="-fx-background-color: #C8C8C8; -fx-border-color: #DCDCDC; -fx-border-width:0 0 1 0;">
-                            <children>
-                                <Label prefWidth="180.0" style="-fx-padding: 10 0 10 16; -fx-font-size:14px; -fx-text-fill:#525252;" text="등록한 재능" />
-                            </children>
-                        </HBox>
-                        <!-- 재능 목록이 여기에 동적으로 추가됨 -->
-                    </children>
-                </VBox>
-
-                <VBox fx:id="talentDateBox" prefWidth="200.0">
-                    <children>
-                        <HBox style="-fx-background-color: #C8C8C8; -fx-border-color: #DCDCDC; -fx-border-width: 0 1 1 0;">
-                            <children>
-                                <Label prefWidth="180.0" style="-fx-padding: 10 0 10 16; -fx-font-size:14px; -fx-text-fill:#525252;" text="등록 일자" />
-                            </children>
-                        </HBox>
-                        <!-- 등록일 목록이 여기에 동적으로 추가됨 -->
-                    </children>
-                </VBox>
-            </children>
-        </HBox>
+      <TableView fx:id="TalentTableView" layoutY="188.0" prefHeight="526.0" prefWidth="540.0">
+         <columns>
+            <TableColumn fx:id="talentName" prefWidth="370.0" text="등록한 재능" />
+            <TableColumn fx:id="memberName" prefWidth="169.0" text="등록 일자" />
+         </columns>
+      </TableView>
 
         <!-- 플로팅 + 버튼 -->
-        <StackPane layoutX="461.0" layoutY="633.0" prefWidth="58.0" prefHeight="58.0">
-            <Circle radius="29.0" fill="white" />
-            <Label text="+" style="-fx-font-size:30px; -fx-text-fill:#4A4A4A;" onMouseClicked="#onAddTalentClicked"/>
+        <StackPane layoutX="461.0" layoutY="633.0" prefHeight="58.0" prefWidth="58.0">
+   <children>
+               <Circle fill="DCDCDC" radius="29.0" />
+               <Label onMouseClicked="#onAddTalentClicked" style="-fx-font-size:30px; -fx-text-fill:#4A4A4A;" text="+" />
+   </children>
         </StackPane>
 
-        <!-- 하단 내비게이션 -->
-        <Pane layoutX="0.0" layoutY="709.0" prefHeight="91.0" prefWidth="540.0" style="-fx-background-color: white; -fx-background-radius: 10;" />
-        <Pane layoutX="21.0" layoutY="732.0" prefHeight="46.0" prefWidth="105.0" style="-fx-background-color:#E2E0E0; -fx-background-radius:5;" />
-        <Label layoutX="35.0" layoutY="745.0" style="-fx-font-size:19px;" text="교환의 장" />
-        <Pane layoutX="152.0" layoutY="732.0" prefHeight="46.0" prefWidth="105.0" style="-fx-background-color:#E2E0E0; -fx-background-radius:5;" />
-        <Label layoutX="166.0" layoutY="745.0" style="-fx-font-size:19px;" text="받은 목록" />
-        <Pane layoutX="283.0" layoutY="732.0" prefHeight="46.0" prefWidth="105.0" style="-fx-background-color:#E2E0E0; -fx-background-radius:5;">
-            <children>
-                <Label layoutX="11.0" layoutY="12.0" style="-fx-font-size:19px;" text="보낸 목록" />
-            </children>
-        </Pane>
-        <Pane layoutX="414.0" layoutY="732.0" prefHeight="46.0" prefWidth="105.0" style="-fx-background-color:#E2E0E0; -fx-background-radius:5;">
-            <children>
-                <Label layoutX="2.0" layoutY="12.0" style="-fx-font-size:19px;" text="마이 페이지" />
-            </children>
-        </Pane>
+      <!-- 하단 네비게이션 버튼들 -->
+      <Button layoutX="33.0" layoutY="740.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="교환의 장" />
+      <Button layoutX="157.0" layoutY="740.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="받은 목록" />
+      <Button layoutX="281.0" layoutY="740.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="보낸 목록" />
+      <Button layoutX="404.0" layoutY="740.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="마이 페이지" />
+
     </children>
 </AnchorPane>
