@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+
+<AnchorPane prefHeight="150.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.exchange.DeleteExchangePopupController">
+   <children>
+      <Button fx:id="deleteBtn" onAction="#deleteExchange" layoutX="170.0" layoutY="106.0" prefHeight="30.0" prefWidth="60.0" text="삭제" />
+      <Label layoutX="120.0" layoutY="48.0" prefHeight="18.0" prefWidth="161.0" style="-fx-font-size: 14;" text="정말 삭제하시겠습니까?" />
+   </children>
+</AnchorPane>
