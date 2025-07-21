@@ -27,7 +27,7 @@ public class MyPageController implements Initializable {
 	
 	@FXML
 	public void talentListAction(ActionEvent event) {
-		SceneChanger.change(event, "/view/member/TalentList.fxml", "재능 관리");
+		SceneChanger.change(event, "/view/talent/TalentListView.fxml", "재능 관리");
 	}
 	
 	@FXML
