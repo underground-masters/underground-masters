@@ -22,7 +22,7 @@
 			</font>
 		</Label>
 		<ComboBox fx:id="talentComboBox" layoutX="50.0" layoutY="193.0" prefHeight="33.0" prefWidth="301.0" promptText="나의 재능 선택하기" />
-		<Button fx:id="requestBtn" layoutX="154.0" layoutY="273.0" maxWidth="93.0" prefHeight="33.0" prefWidth="100.0" style="-fx-background-radius: 8; -fx-background-color: white; -fx-border-color: lightgray; -fx-font-size: 12;" text="매칭 요청" />
+		<Button fx:id="requestBtn" onAction="#onClickMatchingRequestBtn" layoutX="154.0" layoutY="273.0" maxWidth="93.0" prefHeight="33.0" prefWidth="100.0" style="-fx-background-radius: 8; -fx-background-color: white; -fx-border-color: lightgray; -fx-font-size: 12;" text="매칭 요청" />
       <Label fx:id="exchangeDetailLabel" layoutX="50.0" layoutY="85.0" prefHeight="104.0" prefWidth="301.0" style="-fx-font-size: 15;" text="Label" />
 	</children>
 

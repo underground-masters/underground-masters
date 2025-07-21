@@ -42,8 +42,6 @@ public class DeleteExchangePopupController implements Initializable {
 	@FXML
 	public void deleteExchange(ActionEvent event) throws ClassNotFoundException, SQLException {
 		
-		System.out.println("exchangeDTO: " + exchangeDTO);
-		System.out.println("exchangeDTO.getExchangeId(): " + exchangeDTO.getExchangeId());
 		// 1. 삭제 로직
 		exchangeDAO.deleteExchange(exchangeDTO.getExchangeId().get());
 		
