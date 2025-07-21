@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="540.0" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.matching.MatchingController">
+   <children>
+
+      <!-- 상단 로고 이미지 -->
+      <ImageView fitHeight="87.0" fitWidth="87.0" layoutX="227.0" layoutY="0.0">
+         <image>
+            <Image url="@../util/images/logo_gray.png" />
+         </image>
+      </ImageView>
+
+      <!-- 제목 -->
+      <Label layoutX="230.0" layoutY="82.0" text="받은 목록">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+
+      <!-- 테이블 -->
+      <TableView fx:id="MatchingTableView" layoutY="188.0" onMouseClicked="#onShowDetail" prefHeight="526.0" prefWidth="540.0">
+         <columns>
+            <TableColumn fx:id="talentName" prefWidth="222.0" text="상대 재능" />
+            <TableColumn fx:id="memberName" prefWidth="110.0" text="상대 고수" />
+            <TableColumn fx:id="status" prefWidth="85.0" text="상태" />
+            <TableColumn fx:id="requestDate" prefWidth="122.0" text="신청 날짜" />
+         </columns>
+      </TableView>
+
+      <!-- 하단 네비게이션 버튼들 -->
+      <Button layoutX="33.0" layoutY="740.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="교환의 장" />
+      <Button layoutX="157.0" layoutY="740.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="받은 목록" />
+      <Button layoutX="281.0" layoutY="740.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="보낸 목록" />
+      <Button layoutX="404.0" layoutY="740.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="마이 페이지" />
+
+   </children>
+</AnchorPane>
