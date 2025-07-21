@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 public class SceneChanger {
@@ -26,4 +27,26 @@ public class SceneChanger {
             throw new RuntimeException(e);
         }
     }
+	
+	public static void openModal(ActionEvent event, String fxmlPath, String title) {
+		try {
+			FXMLLoader loader = new FXMLLoader(SceneChanger.class.getResource(fxmlPath));
+			Parent root = loader.load();
+			Stage owner = (Stage) ((Node) event.getSource())
+                    .getScene()
+                    .getWindow();
+			
+			Stage modal = new Stage();
+			modal.initOwner(owner);
+			
+			modal.setTitle(title);
+			modal.initModality(Modality.APPLICATION_MODAL);
+			modal.setResizable(false);
+			modal.setScene(new Scene(root));
+			modal.showAndWait();
+
+		} catch (IOException e) {
+			throw new RuntimeException("모달 로드 실패: " + fxmlPath, e);
+		}
+	}
 }

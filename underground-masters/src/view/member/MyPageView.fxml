@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:controller="controller.member.MyPageController" prefHeight="800.0" prefWidth="540.0" style="-fx-background-color: #DDCAC3;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="99.0" fitWidth="152.0" layoutX="194.0" layoutY="180.0">
+         <image>
+            <Image url="@../util/images/logo_gray.png" />
+         </image>
+      </ImageView>
+      
+      <Button fx:id="memberDetailButton" onAction="#memberDetailAction" layoutX="122.0" layoutY="349.0" 
+      		  prefHeight="40.0" prefWidth="296.0" style="-fx-font-size: 14;" text="회원 정보 조회" />
+      		  
+      <Button fx:id="talentListButton" onAction="#talentListAction" layoutX="122.0" layoutY="428.0" 
+      		  prefHeight="40.0" prefWidth="296.0" style="-fx-font-size: 14;" text="나의 재능 관리" />
+      		  
+      <Button fx:id="matchingHistoryButton" onAction="#matchingHistoryAction" layoutX="122.0" layoutY="505.0" 
+      		  prefHeight="40.0" prefWidth="296.0" style="-fx-font-size: 14;" text="매칭 이력" />
+   </children>
+</AnchorPane>
