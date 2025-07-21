@@ -26,6 +26,16 @@ public class TalentDAO {
         return list;
     }
 
+    public void createTalent(TalentDTO dto) {
+        String sql = "INSERT INTO talent (talent_id, member_id, name, is_delete, create_at, update_at) " +
+                     "VALUES (talent_seq.NEXTVAL, ?, ?, 'N', SYSDATE, SYSDATE)";
+        try {
+            DBUtil.dbExecuteUpdate(sql, dto.getMemberId(), dto.getName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void deleteTalent(int talentId) {
         String sql = "CALL DELETE_TALENT(?)";
         try {
