@@ -54,30 +54,11 @@ public class TalentListController {
             talentDateBox.getChildren().add(dateLabel);
         }
     }
-
-    private void openTalentDetailPopup(TalentDTO talent) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/TalentDetailPopup.fxml"));
-            Parent root = loader.load();
-
-            TalentDetailPopupController controller = loader.getController();
-            controller.setTalent(talent);
-            controller.setTalentListController(this);
-
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL);
-            stage.setTitle("재능 상세");
-            stage.setScene(new Scene(root));
-            stage.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
+    
     @FXML
     private void onAddTalentClicked(MouseEvent event) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CreateTalentPopup.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/talent/CreateTalentPopup.fxml"));
             Parent root = loader.load();
 
             CreateTalentPopupController popupController = loader.getController();
@@ -90,6 +71,25 @@ public class TalentListController {
             stage.showAndWait();
 
             loadTalentList();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void openTalentDetailPopup(TalentDTO talent) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/talent/TalentDetailPopup.fxml"));
+            Parent root = loader.load();
+
+            TalentDetailPopupController controller = loader.getController();
+            controller.setTalent(talent);
+            controller.setTalentListController(this);
+
+            Stage stage = new Stage();
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.setTitle("재능 상세");
+            stage.setScene(new Scene(root));
+            stage.showAndWait();
         } catch (IOException e) {
             e.printStackTrace();
         }

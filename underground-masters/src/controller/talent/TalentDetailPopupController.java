@@ -23,7 +23,7 @@ public class TalentDetailPopupController {
     }
 
     @FXML
-    private void onUpdateClicked() {
+    private void onUpdateTalentClicked() {
         String newName = talentNameField.getText().trim();
         if (newName.isEmpty()) {
             System.out.println("재능 이름을 입력해주세요.");
@@ -41,15 +41,15 @@ public class TalentDetailPopupController {
     }
 
     @FXML
-//    private void onDeleteClicked() {
-//        new TalentDAO().deleteTalent(talentDTO.getTalentId()); // DB에서 삭제 처리
-//
-//        if (talentListController != null) {
-//            talentListController.loadTalentList(); // 목록 갱신
-//        }
-//
-//        closeWindow();
-//    }
+    private void onDeleteTalentClicked() {
+        new TalentDAO().deleteTalent(talentDTO.getTalentId()); // DB에서 삭제 처리
+
+        if (talentListController != null) {
+            talentListController.loadTalentList(); // 목록 갱신
+        }
+
+        closeWindow();
+    }
 
     private void closeWindow() {
         Stage stage = (Stage) talentNameField.getScene().getWindow();

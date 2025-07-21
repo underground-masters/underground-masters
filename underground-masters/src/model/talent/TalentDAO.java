@@ -45,12 +45,12 @@ public class TalentDAO {
         }
     }
 
-//    public void deleteTalent(int talentId) {
-//        String sql = "DELETE FROM talent WHERE talent_id = ?";
-//        try {
-//            DBUtil.dbExecuteUpdate(sql, talentId);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//    }
+    public void deleteTalent(int talentId) {
+        String sql = "DELETE FROM talent WHERE talent_id = ?";
+        try {
+            DBUtil.dbExecuteUpdate(sql, talentId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
