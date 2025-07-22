@@ -7,28 +7,29 @@
 
 <AnchorPane prefHeight="800.0" prefWidth="540.0" style="-fx-background-color: #DDCAC3;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.member.SignUpController">
    <children>
-      <ImageView fitHeight="99.0" fitWidth="152.0" layoutX="195.0" layoutY="80.0">
+      <ImageView fitHeight="150.0" fitWidth="196.0" layoutX="174.0" layoutY="30.0">
          <image>
-            <Image url="@../util/images/logo_gray.png" />
+            <Image url="@../util/images/logo_pink.png" />
          </image>
       </ImageView>
       
-      <Label layoutX="97.0" layoutY="237.0" style="-fx-font-size: 16;" text="이름" />
-      <TextField fx:id="nameField" layoutX="148.0" layoutY="224.0" prefHeight="46.0" prefWidth="290.0" style="-fx-font-size: 14;" />
+      <Label layoutX="123.0" layoutY="237.0" style="-fx-font-size: 16;" text="이름" />
+      <TextField fx:id="nameField" layoutX="174.0" layoutY="224.0" prefHeight="46.0" prefWidth="290.0" style="-fx-font-size: 14;" />
 
-      <Label layoutX="85.0" layoutY="312.0" style="-fx-font-size: 16;" text="이메일" />
-      <TextField fx:id="emailField" layoutX="148.0" layoutY="299.0" prefHeight="46.0" prefWidth="290.0" style="-fx-font-size: 14;" />
+      <Label layoutX="111.0" layoutY="312.0" style="-fx-font-size: 16;" text="이메일" />
+      <TextField fx:id="emailField" layoutX="174.0" layoutY="299.0" prefHeight="46.0" prefWidth="290.0" style="-fx-font-size: 14;" />
 
-      <Label layoutX="69.0" layoutY="390.0" style="-fx-font-size: 16;" text="패스워드" />
-      <PasswordField fx:id="passwordField" layoutX="148.0" layoutY="377.0" prefHeight="46.0" prefWidth="290.0" style="-fx-font-size: 14;" />
+      <Label layoutX="95.0" layoutY="390.0" style="-fx-font-size: 16;" text="패스워드" />
+      <PasswordField fx:id="passwordField" layoutX="174.0" layoutY="377.0" prefHeight="46.0" prefWidth="290.0" style="-fx-font-size: 14;" />
 
-      <Label layoutX="34.0" layoutY="464.0" style="-fx-font-size: 16;" text="패스워드 확인" />
-      <PasswordField fx:id="checkPasswordField" layoutX="149.0" layoutY="451.0" prefHeight="46.0" prefWidth="290.0" style="-fx-font-size: 14;" />
+      <Label layoutX="60.0" layoutY="464.0" style="-fx-font-size: 16;" text="패스워드 확인" />
+      <PasswordField fx:id="checkPasswordField" layoutX="175.0" layoutY="451.0" prefHeight="46.0" prefWidth="290.0" style="-fx-font-size: 14;" />
 
-      <Label layoutX="50.0" layoutY="543.0" style="-fx-font-size: 16;" text="핸드폰 번호" />
-      <TextField fx:id="phoneNumberField" layoutX="149.0" layoutY="530.0" prefHeight="46.0" prefWidth="290.0" style="-fx-font-size: 14;" />
+      <Label layoutX="76.0" layoutY="543.0" style="-fx-font-size: 16;" text="핸드폰 번호" />
+      <TextField fx:id="phoneNumberField" layoutX="175.0" layoutY="530.0" prefHeight="46.0" prefWidth="290.0" style="-fx-font-size: 14;" />
 
-      <Button fx:id="signUpButton" layoutX="219.0" layoutY="629.0" onAction="#signUpAction" prefHeight="40.0" prefWidth="105.0" style="-fx-font-size: 14;" text="회원 가입" />
+      <Button fx:id="signUpButton" layoutX="155.0" layoutY="647.0" onAction="#signUpAction" prefHeight="40.0" prefWidth="105.0" style="-fx-font-size: 14;" text="회원 가입" />
+      <Button fx:id="cancelButton" layoutX="307.0" layoutY="647.0" onAction="#cancelAction" prefHeight="40.0" prefWidth="105.0" style="-fx-font-size: 14;" text="취소" />
       		  
       <!-- 오류 메시지를 보여줄 Label -->
       <Label fx:id="lblError" layoutX="132.0" layoutY="597.0" prefWidth="280" textFill="red" wrapText="true" />

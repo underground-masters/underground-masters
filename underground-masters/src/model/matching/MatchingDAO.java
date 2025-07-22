@@ -4,6 +4,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import util.AuthenticationSession;
 import util.DBUtil;
 
 public class MatchingDAO {
@@ -90,8 +92,7 @@ public class MatchingDAO {
 	 */
 	public void createMatching(int exchangeId, String talentName) throws ClassNotFoundException, SQLException {
 		String insertStmt = "{ call create_matching(?, ?, ?) }"; // exchangeId, talentName, memberId로 저장
-//		int memberId = AuthenticationSession.getInstance().getMember().getMemberId(); TODO:
-		int memberId = 1;
+		int memberId = AuthenticationSession.getInstance().getMember().getMemberId();
 		
 		// DB에 교환글 등록하기
 		DBUtil.dbExecuteUpdate(insertStmt, exchangeId, talentName, memberId);

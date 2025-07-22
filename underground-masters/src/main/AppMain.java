@@ -14,7 +14,6 @@ public class AppMain extends Application {
 		// FXML 파일을 로드하여 UI의 루트 노드 생성
 		FXMLLoader loader = new FXMLLoader();
 
-		
 		loader.setLocation(getClass().getResource("/view/member/LoginView.fxml")); 	// Load RootLayout.fxml
 		AnchorPane root = (AnchorPane) loader.load();
 		

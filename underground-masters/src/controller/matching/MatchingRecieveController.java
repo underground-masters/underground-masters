@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import controller.common.NavbarController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -25,7 +26,7 @@ import model.matching.MatchingDTO;
 import model.member.Member;
 import util.AuthenticationSession;
 
-public class MatchingRecieveController implements Initializable {
+public class MatchingRecieveController extends NavbarController implements Initializable {
 
     @FXML private TableView<MatchingDTO> MatchingTableView;
     @FXML private TableColumn<MatchingDTO, String> talentName;
@@ -50,8 +51,7 @@ public class MatchingRecieveController implements Initializable {
     }
 
     public void loadMatchingList() {
-//        int memberId = AuthenticationSession.getInstance().getMember().getMemberId();
-    	int memberId = 2;
+        int memberId = AuthenticationSession.getInstance().getMember().getMemberId();
 
         try {
             List<MatchingDTO> result = dao.findReceivedMatchingList(memberId);
@@ -100,9 +100,7 @@ public class MatchingRecieveController implements Initializable {
 	    
 	    // 7. 팝업창이 닫힐때 까지 대기
 	    matchingDetailPopupStage.showAndWait();
-	    List<MatchingDTO> result = dao.findReceivedMatchingList(member.getMemberId());
-        ObservableList<MatchingDTO> list = FXCollections.observableArrayList(result);
-	    MatchingTableView.setItems(list); // 닫히고 나면 테이블 뷰 reload 
+	    loadMatchingList();
 
     	
     }

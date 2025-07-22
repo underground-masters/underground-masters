@@ -45,24 +45,27 @@ public class MemberDAO {
 		ObservableList<MatchingHistoryDTO> ret = FXCollections.observableArrayList();
 		
 		String query =
-			    "SELECT" +
-			    "    e.title             AS other_talent_name," +
-			    "    m.talent_name       AS my_talent_name," +
-			    "    CASE" +
-			    "        WHEN m.member_id = ? THEN owner.name" +
-			    "        ELSE requester.name" +
-			    "    END                 AS other_member_name," +
-			    "    CASE" +
-			    "        WHEN m.member_id = ? THEN owner.phone_number" +
-			    "        ELSE requester.phone_number" +
-			    "    END                 AS other_phone_number" +
-			    "FROM matching m" +
-			    "    JOIN exchange e ON m.exchange_id = e.exchange_id" +
-			    "    JOIN member requester ON m.member_id = requester.member_id" +
-			    "    JOIN member owner ON e.member_id = owner.member_id" +
-			    "WHERE" +
-			    "    (m.member_id = ? OR e.member_id = ?) AND m.status = '수락'" +
-			    "ORDER BY m.matching_id DESC";
+			    "SELECT\n" +
+			    "    e.title             AS other_talent_name,\n" +
+			    "    m.talent_name       AS my_talent_name,\n" +
+			    "    CASE\n" +
+			    "        WHEN m.member_id = ? THEN owner.name\n" +
+			    "        ELSE requester.name\n" +
+			    "    END                 AS other_member_name,\n" +
+			    "    CASE\n" +
+			    "        WHEN m.member_id = ? THEN owner.phone_number\n" +
+			    "        ELSE requester.phone_number\n" +
+			    "    END                 AS other_phone_number\n" +
+			    "FROM matching m\n" +
+			    "    JOIN exchange e ON m.exchange_id = e.exchange_id\n" +
+			    "    JOIN member requester ON m.member_id = requester.member_id\n" +
+			    "    JOIN member owner ON e.member_id = owner.member_id\n" +
+			    "WHERE \n" +
+			    "    (m.member_id = ? OR e.member_id = ?)\n" +
+			    "    AND m.status = '수락'\n" +
+			    "ORDER BY \n" +
+			    "    m.matching_id DESC";
+
 		
 		ResultSet resultSet = DBUtil.dbExecuteQuery(query, memberId, memberId, memberId, memberId);
 		while (resultSet.next()) {

@@ -9,7 +9,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="540.0" style="-fx-background-radius: 20;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.exchange.ExchangeController">
    <children>
-      <Button layoutX="416.0" layoutY="132.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="88.0" text="검색" />
+   	  <!-- 상단 로고 이미지 -->
+      <ImageView fitHeight="128.0" fitWidth="151.0" layoutX="188.0" layoutY="-27.0">
+         <image>
+            <Image url="@../util/images/logo_gray.png" />
+         </image>
+      </ImageView>
       <TableView fx:id="exchangeTableView" layoutY="188.0" onMouseClicked="#onShowDetailPopupBtn" prefHeight="526.0" prefWidth="540.0">
         <columns>
           <TableColumn fx:id="talentName" prefWidth="230.0" text="재능" />
@@ -17,36 +22,33 @@
           <TableColumn fx:id="createAt" prefWidth="171.0" text="등록날짜" />
         </columns>
       </TableView>
-      <TextField layoutX="134.0" layoutY="132.0" prefHeight="33.0" prefWidth="270.0" style="-fx-font-size: 14;" />
-      <Label layoutX="149.0" layoutY="141.0" prefHeight="15.0" prefWidth="173.0" style="-fx-font-size: 12;" text="재능명, 고수명을 입력하세요." />
-      <ChoiceBox layoutX="33.0" layoutY="132.0" prefHeight="33.0" prefWidth="88.0" />
-      <Label layoutX="230.0" layoutY="82.0" text="화면이름">
+      <Label layoutX="222.0" layoutY="108.0" text="교환의 장">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
       <ImageView fitHeight="67.0" fitWidth="80.0" layoutX="185.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true" />
-      <Button fx:id="registerExchangeBtn" layoutX="420.0" layoutY="84.0" mnemonicParsing="false" onAction="#onShowRegisterExchangePopupBtn" text="교환글 등록" />
-      <ImageView fitHeight="76.0" fitWidth="125.0" layoutX="205.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="registerExchangeBtn" layoutX="412.0" layoutY="142.0" mnemonicParsing="false" onAction="#onShowRegisterExchangePopupBtn" prefHeight="33.0" prefWidth="100.0" text="교환글 등록" />
+      <ImageView fitHeight="100.0" fitWidth="125.0" layoutX="205.0" pickOnBounds="true" preserveRatio="true" />
       
       <HBox layoutY="714.0" prefHeight="87.0" prefWidth="540.0">
          <children>
-            <Button onAction="#exchangeListBtn" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="교환의 장">
+            <Button mnemonicParsing="false" onAction="#exchangeListBtn" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="교환의 장">
                <HBox.margin>
                   <Insets left="28.0" top="25.0" />
                </HBox.margin>
             </Button>
-            <Button onAction="#receiveListBtn" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="받은 목록">
+            <Button mnemonicParsing="false" onAction="#receiveListBtn" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="받은 목록">
                <HBox.margin>
                   <Insets left="28.0" top="25.0" />
                </HBox.margin>
             </Button>
-            <Button onAction="#sendListBtn" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="보낸 목록">
+            <Button mnemonicParsing="false" onAction="#sendListBtn" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="보낸 목록">
                <HBox.margin>
                   <Insets left="28.0" top="25.0" />
                </HBox.margin>
             </Button>
-            <Button onAction="#myPageBtn" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="마이 페이지">
+            <Button mnemonicParsing="false" onAction="#myPageBtn" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="마이 페이지">
                <HBox.margin>
                   <Insets left="28.0" top="25.0" />
                </HBox.margin>

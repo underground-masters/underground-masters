@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import controller.common.NavbarController;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -15,7 +16,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.matching.*;
 import util.*;
 
-public class MatchingSendController implements Initializable {
+public class MatchingSendController extends NavbarController implements Initializable {
 
     @FXML private TableView<MatchingDTO> MatchingTableView;
     @FXML private TableColumn<MatchingDTO, String> talentName;
