@@ -28,8 +28,8 @@
       <Label layoutX="76.0" layoutY="543.0" style="-fx-font-size: 16;" text="핸드폰 번호" />
       <TextField fx:id="phoneNumberField" layoutX="175.0" layoutY="530.0" prefHeight="46.0" prefWidth="290.0" style="-fx-font-size: 14;" />
 
-      <Button fx:id="signUpButton" layoutX="155.0" layoutY="647.0" onAction="#signUpAction" prefHeight="40.0" prefWidth="105.0" style="-fx-font-size: 14;" text="회원 가입" />
-      <Button fx:id="cancelButton" layoutX="307.0" layoutY="647.0" onAction="#cancelAction" prefHeight="40.0" prefWidth="105.0" style="-fx-font-size: 14;" text="취소" />
+      <Button fx:id="signUpButton" layoutX="158.0" layoutY="646.0" onAction="#signUpAction" prefHeight="40.0" prefWidth="105.0" style="-fx-font-size: 14;" text="회원 가입" />
+      <Button fx:id="cancelButton" layoutX="281.0" layoutY="646.0" onAction="#cancelAction" prefHeight="40.0" prefWidth="105.0" style="-fx-font-size: 14;" text="취소" />
       		  
       <!-- 오류 메시지를 보여줄 Label -->
       <Label fx:id="lblError" layoutX="132.0" layoutY="597.0" prefWidth="280" textFill="red" wrapText="true" />

@@ -10,6 +10,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.exchange.ExchangeDAO;
@@ -20,7 +21,7 @@ public class CreateExchangePopupController implements Initializable {
 	
 	// CreateExchangePopup.fxml에서 찾아서 등록
 	@FXML private ComboBox<String> talentComboBox;
-	@FXML private TextField descTextField;
+	@FXML private TextArea descTextField;
 	@FXML private Button registerBtn;
 	
 	@Override

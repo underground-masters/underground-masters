@@ -20,6 +20,7 @@ public class ExchangeDTO {
     private StringProperty content = new SimpleStringProperty();
     private StringProperty isDelete = new SimpleStringProperty();
     private SimpleObjectProperty<Date> createAt = new SimpleObjectProperty<>();
+    private StringProperty memberName = new SimpleStringProperty(); 
 	
 	// Property getter 메서드
 	public IntegerProperty exchangeIdProperty() {
@@ -44,5 +45,9 @@ public class ExchangeDTO {
 	
 	public SimpleObjectProperty<Date> createAtProperty() {
 		return createAt;
+	}
+	
+	public StringProperty memberNameProperty() {
+		return memberName;
 	}
 }

@@ -20,7 +20,7 @@ public class ExchangeDAO {
 		ObservableList<ExchangeDTO> exchangeList = FXCollections.observableArrayList(); // 교환글 담을 리스트
 		
 		// DB에서 교환글 목록 불러오기
-		String selectStmt = "SELECT * FROM MASTERS.EXCHANGE WHERE IS_DELETE='N'";
+		String selectStmt = "SELECT EXCHANGE.*, MEMBER.NAME FROM MASTERS.EXCHANGE JOIN MASTERS.MEMBER ON EXCHANGE.MEMBER_ID = MEMBER.MEMBER_ID WHERE IS_DELETE='N'";
 		ResultSet resultSet = DBUtil.dbExecuteQuery(selectStmt);
 		
 		// resultSet에 담겨있는 교환글 목록을 exchangeList에 담기
@@ -41,6 +41,7 @@ public class ExchangeDAO {
 					.memberId(new SimpleIntegerProperty(resultSet.getInt("MEMBER_ID")))
 					.createAt(new SimpleObjectProperty<>(resultSet.getDate("CREATE_AT")))
 					.isDelete(new SimpleStringProperty(resultSet.getString("IS_DELETE")))
+					.memberName(new SimpleStringProperty(resultSet.getString("NAME")))
 					.build();
 			
 			exchangeList.add(exchangeDTO); // ObservableList에 담기
@@ -59,7 +60,7 @@ public class ExchangeDAO {
 		int memberId = AuthenticationSession.getInstance().getMember().getMemberId();
 		
 		// DB에서 재능 목록 불러오기
-		String selectStmt = "SELECT NAME FROM MASTERS.TALENT WHERE MEMBER_ID = ?";
+		String selectStmt = "SELECT NAME FROM MASTERS.TALENT WHERE MEMBER_ID = ? AND IS_DELETE = 'N'";
 		ResultSet resultSet = DBUtil.dbExecuteQuery(selectStmt, memberId);
 		
 		// resultSet에 담겨있는 재능 목록을 talentList에 담기

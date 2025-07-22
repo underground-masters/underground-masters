@@ -51,12 +51,9 @@ public class ExchangeController extends NavbarController implements Initializabl
 		member = AuthenticationSession.getInstance().getMember();
 		
 		// 1단계: 컬럼 매핑(바인딩)
-		StringProperty memberNameById = new SimpleStringProperty("김경아"); // TODO: memberId로 memberName가져오기
-		
 		// TableView 컬럼 ↔ DTO 속성(Property) 매핑만 하는 역할
 		talentName.setCellValueFactory(cellData -> cellData.getValue().titleProperty());
-//		memberName.setCellValueFactory(cellData -> cellData.getValue().exchangeIdProperty().asObject()); //TODO: memberId로 memberName가져오기
-		memberName.setCellValueFactory(cellData -> memberNameById);
+		memberName.setCellValueFactory(cellData -> cellData.getValue().memberNameProperty());
 		createAt.setCellValueFactory(cellData -> cellData.getValue().createAtProperty());
 		
 		// 2단계: DB에서 데이터 조회 후 TableView에 세팅
