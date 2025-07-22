@@ -20,9 +20,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import model.exchange.ExchangeDTO;
-import model.matching.*;
-import util.*;
+import model.matching.MatchingDAO;
+import model.matching.MatchingDTO;
+import model.member.Member;
+import util.AuthenticationSession;
 
 public class MatchingRecieveController implements Initializable {
 
@@ -31,13 +32,15 @@ public class MatchingRecieveController implements Initializable {
     @FXML private TableColumn<MatchingDTO, String> memberName;
     @FXML private TableColumn<MatchingDTO, String> status;
     @FXML private TableColumn<MatchingDTO, String> requestDate;
-    
-    @FXML private Label matchingDetailLabel;
 
+    private Member member;
+    
     private final MatchingDAO dao = new MatchingDAO();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+    	member = AuthenticationSession.getInstance().getMember(); // 로그인한 사용자
+    	
         talentName.setCellValueFactory(new PropertyValueFactory<>("requestedTalent"));
         memberName.setCellValueFactory(new PropertyValueFactory<>("requesterName"));
         status.setCellValueFactory(new PropertyValueFactory<>("status"));
@@ -48,7 +51,7 @@ public class MatchingRecieveController implements Initializable {
 
     public void loadMatchingList() {
 //        int memberId = AuthenticationSession.getInstance().getMember().getMemberId();
-    	int memberId = 1;
+    	int memberId = 2;
 
         try {
             List<MatchingDTO> result = dao.findReceivedMatchingList(memberId);
@@ -73,22 +76,14 @@ public class MatchingRecieveController implements Initializable {
 	    
 	    // 테이블뷰에서 현재 선택된 ExchangeDTO 객체를 꺼냄
 	    MatchingDTO matchingDTO = MatchingTableView.getSelectionModel().getSelectedItem();
-	    
+
 	    // 1. FXML 파일을 로딩할 FXMLLoader 객체를 생성 (이 시점에 컨트롤러 객체 "생성"도 준비됨)
 	    FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/matching/MatchingDetailPopup.fxml"));
 	    Parent popupRoot = loader.load();
     	
 	    // 팝업화면 전용 컨트롤러 객체를 받아옴
 	    MatchingDetailPopupController popupController = loader.getController();
-	    
-	    // 2. 라벨에 데이터 넣기
-	    // TODO: exchageId로 exchagnge 정보 받아오기
-//	    matchingDetailLabel.setText(
-//	            "상대 고수 : " + matchingDTO.getMemberId().get() + '\n' +
-//	            "상대 재능 : " + matchingDTO.getTalentName() + '\n' +
-//	            "상세설명 : " + matchingDTO. + '\n' +
-//	            "등록일 : " + matchingDTO. + '\n'
-//	        );
+	    popupController.setMatchingData(matchingDTO); // 팝업 컨트롤러에 데이터 전달 (팝업 라벨에 값 세팅)
 	    
 	    // 3. 새로운 Stage 생성
 	    Stage matchingDetailPopupStage = new Stage();
@@ -105,7 +100,9 @@ public class MatchingRecieveController implements Initializable {
 	    
 	    // 7. 팝업창이 닫힐때 까지 대기
 	    matchingDetailPopupStage.showAndWait();
-//	    MatchingTableView.setItems(dao.findReceivedMatchingList(memberId)); // 닫히고 나면 테이블 뷰 reload TODO
+	    List<MatchingDTO> result = dao.findReceivedMatchingList(member.getMemberId());
+        ObservableList<MatchingDTO> list = FXCollections.observableArrayList(result);
+	    MatchingTableView.setItems(list); // 닫히고 나면 테이블 뷰 reload 
 
     	
     }

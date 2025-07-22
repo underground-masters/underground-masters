@@ -8,8 +8,10 @@ import java.util.ResourceBundle;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import model.exchange.ExchangeDAO;
 import model.exchange.ExchangeDTO;
 import model.matching.MatchingDAO;
@@ -22,6 +24,7 @@ public class NotMyExchangeDetailPopupController extends DetailPopupController {
 	// MyExchangeDetailPopup.fxml에서 찾아서 등록
 	@FXML private Label exchangeDetailLabel;
 	@FXML private ComboBox<String> talentComboBox;
+	@FXML private Button requestBtn;
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -64,5 +67,7 @@ public class NotMyExchangeDetailPopupController extends DetailPopupController {
 		String selectedTalent = talentComboBox.getValue();  // 선택한 재능
 		
 		matchingDAO.createMatching(exchangeId, selectedTalent); // DB에 저장
+		
+		((Stage) requestBtn.getScene().getWindow()).close(); // 화면 닫기
 	}
 }
