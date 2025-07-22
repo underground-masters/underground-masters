@@ -6,12 +6,12 @@ import lombok.Setter;
 @Getter
 @Setter
 public class MatchingDTO {
-    private int matchingId;             // m.MATCHING_ID
-    private String requestedTalent;     // m.TALENT_NAME AS REQUESTED_TALENT
-    private String status;              // m.STATUS
-    private String requestDate;         // m.CREATE_AT AS REQUEST_DATE
-    private String requesterName;       // req.NAME AS REQUESTER_NAME
-    private String requesterEmail;      // req.EMAIL AS REQUESTER_EMAIL
-    private String exchangeTitle;       // e.TITLE AS EXCHANGE_TITLE
-    private String exchangeContent;     // e.CONTENT AS EXCHANGE_CONTENT
+    private int matchingId;
+    private String requestedTalent;
+    private String status;
+    private String requestDate;
+    private String requesterName;
+    private String requesterEmail;
+    private String exchangeTitle;
+    private String exchangeContent;
 }

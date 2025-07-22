@@ -12,8 +12,6 @@ public class MatchingDAO {
      * 받은 매칭 요청 목록 조회 (내가 등록한 교환글에 들어온 요청들)
      */
     public List<MatchingDTO> findReceivedMatchingList(int memberId) throws SQLException, ClassNotFoundException {
-        List<MatchingDTO> list = new ArrayList<>();
-
         String sql =
             "SELECT " +
             "       m.MATCHING_ID,  " +
@@ -32,6 +30,48 @@ public class MatchingDAO {
             "ORDER BY m.CREATE_AT DESC";
 
         ResultSet rs = DBUtil.dbExecuteQuery(sql, memberId);
+        return parseMatchingResultSet(rs);
+    }
+
+    /**
+     * 보낸 매칭 요청 목록 조회 (내가 다른 사람 글에 신청한 것)
+     */
+    public List<MatchingDTO> findSendMatchingList(int memberId) throws SQLException, ClassNotFoundException {
+        String sql =
+            "SELECT " +
+            "       m.MATCHING_ID, " +
+            "       m.TALENT_NAME AS REQUESTED_TALENT, " +
+            "       m.STATUS, " +
+            "       m.CREATE_AT AS REQUEST_DATE, " +
+            "       owner.NAME AS REQUESTER_NAME, " +
+            "       owner.EMAIL AS REQUESTER_EMAIL, " +
+            "       e.TITLE AS EXCHANGE_TITLE, " +
+            "       e.CONTENT AS EXCHANGE_CONTENT " +
+            "FROM MATCHING m " +
+            "JOIN EXCHANGE e ON m.EXCHANGE_ID = e.EXCHANGE_ID " +
+            "JOIN MEMBER owner ON e.MEMBER_ID = owner.MEMBER_ID " +
+            "WHERE m.MEMBER_ID = ? " +
+            "  AND e.IS_DELETE = 'N' " +
+            "ORDER BY m.CREATE_AT DESC";
+
+        ResultSet rs = DBUtil.dbExecuteQuery(sql, memberId);
+        return parseMatchingResultSet(rs);
+    }
+
+    /**
+     * 매칭 등록 메서드
+     */
+    public void createMatching(int exchangeId, String talentName) throws ClassNotFoundException, SQLException {
+        String insertStmt = "{ call create_matching(?, ?, ?) }";
+        int memberId = 1; // TODO: AuthenticationSession.getInstance().getMember().getMemberId()로 바꾸기
+        DBUtil.dbExecuteUpdate(insertStmt, exchangeId, talentName, memberId);
+    }
+
+    /**
+     * 공통 ResultSet 파싱 메서드
+     */
+    private List<MatchingDTO> parseMatchingResultSet(ResultSet rs) throws SQLException {
+        List<MatchingDTO> list = new ArrayList<>();
 
         while (rs.next()) {
             MatchingDTO dto = new MatchingDTO();
@@ -49,17 +89,4 @@ public class MatchingDAO {
 
         return list;
     }
-    
-	/**
-	 * 매칭 등록 메서드
-	 * @throws SQLException 
-	 * @throws ClassNotFoundException 
-	 */
-	public void createMatching(int exchangeId, String talentName) throws ClassNotFoundException, SQLException {
-		String insertStmt = "{ call create_matching(?, ?, ?) }"; // exchangeId, talentName, memberId로 저장
-		int memberId = 1; //TODO: 임시 데이터(현재 접속한 ID값으로 바꾸기)
-
-		// DB에 교환글 등록하기
-		DBUtil.dbExecuteUpdate(insertStmt, exchangeId, talentName, memberId);
-	}
 }

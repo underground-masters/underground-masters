@@ -15,7 +15,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.matching.*;
 import util.*;
 
-public class MatchingController implements Initializable {
+public class MatchingSendController implements Initializable {
 
     @FXML private TableView<MatchingDTO> MatchingTableView;
     @FXML private TableColumn<MatchingDTO, String> talentName;
@@ -27,8 +27,8 @@ public class MatchingController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        talentName.setCellValueFactory(new PropertyValueFactory<>("talentName"));
-        memberName.setCellValueFactory(new PropertyValueFactory<>("memberName"));
+        talentName.setCellValueFactory(new PropertyValueFactory<>("requestedTalent"));
+        memberName.setCellValueFactory(new PropertyValueFactory<>("requesterName"));
         status.setCellValueFactory(new PropertyValueFactory<>("status"));
         requestDate.setCellValueFactory(new PropertyValueFactory<>("requestDate"));
 
@@ -39,7 +39,7 @@ public class MatchingController implements Initializable {
         int memberId = AuthenticationSession.getInstance().getMember().getMemberId();
 
         try {
-            List<MatchingDTO> result = dao.findReceivedMatchingList(memberId);
+            List<MatchingDTO> result = dao.findSendMatchingList(memberId);
             ObservableList<MatchingDTO> list = FXCollections.observableArrayList(result);
             MatchingTableView.setItems(list);
         } catch (ClassNotFoundException | SQLException e) {
