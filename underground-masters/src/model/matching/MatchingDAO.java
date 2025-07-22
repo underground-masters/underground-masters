@@ -96,4 +96,9 @@ public class MatchingDAO {
 		// DB에 교환글 등록하기
 		DBUtil.dbExecuteUpdate(insertStmt, exchangeId, talentName, memberId);
 	}
+	//매칭 수락, 거절
+	public void updateMatchingStatus(int matchingId, String newStatus) throws SQLException, ClassNotFoundException {
+	    String sql = "UPDATE MATCHING SET STATUS = ? WHERE MATCHING_ID = ?";
+	    DBUtil.dbExecuteUpdate(sql, newStatus, matchingId);
+	}
 }
