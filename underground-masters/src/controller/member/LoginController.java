@@ -41,9 +41,7 @@ public class LoginController implements Initializable {
 		
 		try {
 			loginService(email, password);
-			
-			// [update] 로그인에 성공하면, 교환의 장 목록 페이지로 이동하도록 수정.
-			SceneChanger.change(event, "/view/member/MyPageView.fxml", "My Page");
+			SceneChanger.change(event, "/view/member/ExchangeListView.fxml", "교환의 장");
 			
 		} catch (ValidationException ex) {
 			// 검증 예외: 메시지만 사용자에게 보여줌

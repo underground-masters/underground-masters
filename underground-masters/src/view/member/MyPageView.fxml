@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:controller="controller.member.MyPageController" prefHeight="800.0" prefWidth="540.0" style="-fx-background-color: #DDCAC3;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:controller="controller.member.MyPageController" prefHeight="800.0" prefWidth="540.0" 
+			style="-fx-background-color: #DDCAC3;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <ImageView fitHeight="99.0" fitWidth="152.0" layoutX="194.0" layoutY="180.0">
          <image>
@@ -13,13 +15,35 @@
          </image>
       </ImageView>
       
-      <Button fx:id="memberDetailButton" onAction="#memberDetailAction" layoutX="122.0" layoutY="349.0" 
-      		  prefHeight="40.0" prefWidth="296.0" style="-fx-font-size: 14;" text="회원 정보 조회" />
+      <Button fx:id="memberDetailButton" layoutX="122.0" layoutY="349.0" onAction="#memberDetailAction" prefHeight="40.0" prefWidth="296.0" style="-fx-font-size: 14;" text="회원 정보 조회" />
       		  
-      <Button fx:id="talentListButton" onAction="#talentListAction" layoutX="122.0" layoutY="428.0" 
-      		  prefHeight="40.0" prefWidth="296.0" style="-fx-font-size: 14;" text="나의 재능 관리" />
+      <Button fx:id="talentListButton" layoutX="122.0" layoutY="428.0" onAction="#talentListAction" prefHeight="40.0" prefWidth="296.0" style="-fx-font-size: 14;" text="나의 재능 관리" />
       		  
-      <Button fx:id="matchingHistoryButton" onAction="#matchingHistoryAction" layoutX="122.0" layoutY="505.0" 
-      		  prefHeight="40.0" prefWidth="296.0" style="-fx-font-size: 14;" text="매칭 이력" />
+      <Button fx:id="matchingHistoryButton" layoutX="122.0" layoutY="505.0" onAction="#matchingHistoryAction" prefHeight="40.0" prefWidth="296.0" style="-fx-font-size: 14;" text="매칭 이력" />
+      
+      <HBox layoutY="724.0" prefHeight="87.0" prefWidth="540.0" style="-fx-background-color: white;">
+         <children>
+            <Button onAcition="#exchangeListBtn" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="교환의 장">
+               <HBox.margin>
+                  <Insets left="28.0" top="25.0" />
+               </HBox.margin>
+            </Button>
+            <Button onAcition="#receiveListBtn" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="받은 목록">
+               <HBox.margin>
+                  <Insets left="28.0" top="25.0" />
+               </HBox.margin>
+            </Button>
+            <Button onAcition="#sendListBtn" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="보낸 목록">
+               <HBox.margin>
+                  <Insets left="28.0" top="25.0" />
+               </HBox.margin>
+            </Button>
+            <Button onAcition="#myPageBtn" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="마이 페이지">
+               <HBox.margin>
+                  <Insets left="28.0" top="25.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </AnchorPane>

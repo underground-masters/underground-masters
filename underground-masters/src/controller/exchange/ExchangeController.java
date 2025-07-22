@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+import controller.common.NavbarController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
@@ -22,8 +23,9 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.exchange.ExchangeDAO;
 import model.exchange.ExchangeDTO;
+import util.SceneChanger;
 
-public class ExchangeController implements Initializable {
+public class ExchangeController extends NavbarController implements Initializable {
 	
 	private final ExchangeDAO exchangeDAO = new ExchangeDAO(); // 공유
 	
@@ -163,4 +165,25 @@ public class ExchangeController implements Initializable {
 		
 	}
 
+	/*
+	@FXML
+	public void exchangeListBtn(ActionEvent event) {
+		SceneChanger.change(event, "/view/exchange/ExchangeListView.fxml", "교환의 장");
+	}
+	
+	@FXML
+	public void receiveListBtn(ActionEvent event) {
+		SceneChanger.change(event, "/view/matching/MatchingReceiveListView.fxml", "받은 목록");
+	}
+	
+	@FXML
+	public void sendListBtn(ActionEvent event) {
+		SceneChanger.change(event, "/view/matching/MatchingSendListView.fxml", "보낸 목록");
+	}
+	
+	@FXML
+	public void myPageBtn(ActionEvent event) {
+		SceneChanger.change(event, "/view/member/MyPageView.fxml", "마이 페이지");
+	}
+	*/
 }

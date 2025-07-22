@@ -33,5 +33,6 @@ public class MyPageController implements Initializable {
 	@FXML
 	public void matchingHistoryAction(ActionEvent event) {
 		SceneChanger.change(event, "/view/member/MatchingHistory.fxml", "매칭 이력");
-	}	
+	}
+	
 }
