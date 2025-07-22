@@ -19,43 +19,46 @@ public class MatchingDetailPopupController implements Initializable {
     @FXML private Button rejectBtn;
 
     private MatchingDTO matchingDTO;
-    private final MatchingDAO matchingDAO = new MatchingDAO();
+    private final MatchingDAO dao = new MatchingDAO();
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        acceptBtn.setOnAction(event -> {
-            updateStatus("수락");
-            closeWindow();
-        });
-
-        rejectBtn.setOnAction(event -> {
-            updateStatus("거절");
-            closeWindow();
-        });
+        acceptBtn.setOnAction(event -> onAccept());
+        rejectBtn.setOnAction(event -> onReject());
     }
 
-    public void setMatchingData(MatchingDTO matchingDTO) {
-
-        this.matchingDTO = matchingDTO;
-    	matchingDetailLabel.setText(
-
-                "상대 고수 : " + matchingDTO.getRequesterName() + '\n' +
-                "상대 재능 : " + matchingDTO.getRequestedTalent() + '\n' +
-                "상세 설명 : " + matchingDTO.getExchangeContent() + '\n' +
-                "등록일 : " + matchingDTO.getRequestDate() + '\n' +
-                "상태 : " + matchingDTO.getStatus()
+    public void setMatchingData(MatchingDTO dto) {
+        this.matchingDTO = dto;
+        matchingDetailLabel.setText(
+            "상대 고수 : " + dto.getRequesterName() + '\n' +
+            "상대 재능 : " + dto.getRequestedTalent() + '\n' +
+            "상세 설명 : " + dto.getExchangeContent() + '\n' +
+            "등록일 : " + dto.getRequestDate() + '\n' +
+            "상태 : " + dto.getStatus()
         );
     }
 
-    private void updateStatus(String newStatus) {
+    @FXML
+    private void onAccept() {
+        updateStatusAndClose("수락");
+    }
+
+    @FXML
+    private void onReject() {
+        updateStatusAndClose("거절");
+    }
+
+    private void updateStatusAndClose(String newStatus) {
         try {
-            matchingDAO.updateMatchingStatus(matchingDTO.getMatchingId(), newStatus);
+            dao.updateMatchingStatus(matchingDTO.getMatchingId(), newStatus);
         } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
+        } finally {
+            closePopup();
         }
     }
 
-    private void closeWindow() {
+    private void closePopup() {
         Stage stage = (Stage) acceptBtn.getScene().getWindow();
         stage.close();
     }

@@ -4,7 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-
+import model.matching.MatchingDAO;
 import util.AuthenticationSession;
 import util.DBUtil;
 
@@ -97,9 +97,11 @@ public class MatchingDAO {
 		// DB에 교환글 등록하기
 		DBUtil.dbExecuteUpdate(insertStmt, exchangeId, talentName, memberId);
 	}
-	//매칭 수락, 거절
-	public void updateMatchingStatus(int matchingId, String newStatus) throws SQLException, ClassNotFoundException {
-	    String sql = "UPDATE MATCHING SET STATUS = ? WHERE MATCHING_ID = ?";
-	    DBUtil.dbExecuteUpdate(sql, newStatus, matchingId);
-	}
+    /**
+     * 매칭 상태 업데이트 (수락 / 거절)
+     */
+    public void updateMatchingStatus(int matchingId, String newStatus) throws SQLException, ClassNotFoundException {
+        String sql = "UPDATE MATCHING SET STATUS = ? WHERE MATCHING_ID = ?";
+        DBUtil.dbExecuteUpdate(sql, newStatus, matchingId);
+    }
 }
