@@ -7,11 +7,13 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import model.member.Member;
 import model.member.MemberDAO;
+import util.AlertUtil;
 import util.AuthenticationSession;
 import util.DBUtil;
 import util.SceneChanger;
@@ -26,6 +28,8 @@ public class MemberModifyController implements Initializable {
 	@FXML private PasswordField passwordField;
 	@FXML private PasswordField checkPasswordField;
 	@FXML private TextField phoneNumberField;
+	
+	@FXML private Button saveButton;
 	
 	@FXML private Label lblError;          // 오류 메시지 라벨
 	
@@ -61,6 +65,11 @@ public class MemberModifyController implements Initializable {
 			
 			// 회원 정보 리로드
 			AuthenticationSession.getInstance().reload(memberDao);
+			
+			AlertUtil.showSuccess(
+				saveButton.getScene().getWindow(),
+			    "회원 정보가 수정 되었습니다."
+			);
 			
 			SceneChanger.change(event, "/view/member/MemberDetailView.fxml", "회원 정보");
 			

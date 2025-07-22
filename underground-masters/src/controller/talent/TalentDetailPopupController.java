@@ -1,15 +1,20 @@
 package controller.talent;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.talent.*;
+import util.AlertUtil;
 
 public class TalentDetailPopupController {
 
     @FXML
     private TextField talentNameField;
 
+    @FXML private Button updateBtn;
+    @FXML private Button deleteBtn;
+    
     private TalentDTO talentDTO; // 선택된 재능 정보
     private TalentListController talentListController; // 목록 갱신용
 
@@ -37,6 +42,11 @@ public class TalentDetailPopupController {
             talentListController.loadTalentList(); // 목록 갱신
         }
 
+        AlertUtil.showSuccess(
+    		updateBtn.getScene().getWindow(),
+		    "재능이 성공적으로 수정 되었습니다."
+		);
+        
         closeWindow();
     }
 
@@ -48,6 +58,11 @@ public class TalentDetailPopupController {
             talentListController.loadTalentList(); // 목록 갱신
         }
 
+        AlertUtil.showSuccess(
+    		deleteBtn.getScene().getWindow(),
+		    "재능이 성공적으로 삭제 되었습니다."
+		);
+        
         closeWindow();
     }
 

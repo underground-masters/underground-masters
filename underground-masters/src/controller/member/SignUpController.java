@@ -8,9 +8,11 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import util.AlertUtil;
 import util.DBUtil;
 import util.SceneChanger;
 
@@ -21,6 +23,8 @@ public class SignUpController implements Initializable{
 	@FXML private PasswordField passwordField;
 	@FXML private PasswordField checkPasswordField;
 	@FXML private TextField phoneNumberField;
+	
+	@FXML private Button signUpButton;
 	
 	@FXML private Label lblError;          // 오류 메시지 라벨
 	
@@ -51,6 +55,11 @@ public class SignUpController implements Initializable{
 			String query = "{ call SP_CREATE_MEMBER(?, ?, ?, ?) }";
 			
 			DBUtil.dbExecuteUpdate(query, name, email, password, phoneNumber);			
+			
+			AlertUtil.showSuccess(
+				signUpButton.getScene().getWindow(),
+			    "회원이 성공적으로 등록되었습니다."
+			);
 			
 			// 회원이 정상 등록된 경우, 로그인 페이지로 리다이렉트.
 			SceneChanger.change(event, "/view/member/LoginView.fxml", "login");
