@@ -25,12 +25,12 @@
             promptText="교환 재능 : " style="-fx-background-radius: 5; -fx-font-size: 14; -fx-padding: 8;" />
 
         <!-- 수정 버튼 -->
-        <Button layoutX="85.0" layoutY="264.0" maxWidth="93.0" prefHeight="33.0" prefWidth="100.0"
+        <Button fx:id="updateBtn" layoutX="85.0" layoutY="264.0" maxWidth="93.0" prefHeight="33.0" prefWidth="100.0"
             style="-fx-background-radius: 8; -fx-background-color: white; -fx-border-color: lightgray; -fx-font-size: 12;"
             text="수정" onAction="#onUpdateTalentClicked" />
 
         <!-- 삭제 버튼 -->
-        <Button layoutX="218.0" layoutY="264.0" maxWidth="93.0" prefHeight="33.0" prefWidth="100.0"
+        <Button fx:id="deleteBtn" layoutX="218.0" layoutY="264.0" maxWidth="93.0" prefHeight="33.0" prefWidth="100.0"
             style="-fx-background-radius: 8; -fx-background-color: white; -fx-border-color: lightgray; -fx-font-size: 12;"
             text="삭제" onAction="#onDeleteTalentClicked" />
 
