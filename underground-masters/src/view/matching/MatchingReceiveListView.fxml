@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
@@ -10,14 +11,14 @@
    <children>
 
       <!-- 상단 로고 이미지 -->
-      <ImageView fitHeight="87.0" fitWidth="87.0" layoutX="227.0" layoutY="0.0">
+      <ImageView fitHeight="128.0" fitWidth="151.0" layoutX="188.0" layoutY="-27.0">
          <image>
             <Image url="@../util/images/logo_gray.png" />
          </image>
       </ImageView>
 
       <!-- 제목 -->
-      <Label layoutX="227.0" layoutY="110.0" text="받은 목록">
+      <Label layoutX="222.0" layoutY="108.0" text="받은 목록">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -34,10 +35,30 @@
       </TableView>
 
       <!-- 하단 네비게이션 버튼들 -->
-      <Button layoutX="33.0" layoutY="740.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="교환의 장" />
-      <Button layoutX="157.0" layoutY="740.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="받은 목록" />
-      <Button layoutX="281.0" layoutY="740.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="보낸 목록" />
-      <Button layoutX="404.0" layoutY="740.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="마이 페이지" />
+      <HBox layoutY="714.0" prefHeight="87.0" prefWidth="540.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#exchangeListBtn" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="교환의 장">
+               <HBox.margin>
+                  <Insets left="28.0" top="25.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#receiveListBtn" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="받은 목록">
+               <HBox.margin>
+                  <Insets left="28.0" top="25.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#sendListBtn" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="보낸 목록">
+               <HBox.margin>
+                  <Insets left="28.0" top="25.0" />
+               </HBox.margin>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#myPageBtn" prefHeight="33.0" prefWidth="100.0" style="-fx-font-size: 12;" text="마이 페이지">
+               <HBox.margin>
+                  <Insets left="28.0" top="25.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
 
    </children>
 </AnchorPane>

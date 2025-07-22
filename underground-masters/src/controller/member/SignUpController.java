@@ -65,6 +65,11 @@ public class SignUpController implements Initializable{
 		}
 	}
 	
+	@FXML
+	public void cancelAction(ActionEvent event) {
+		SceneChanger.change(event, "/view/member/LoginView.fxml", "로그인");
+	}
+	
 	// 이메일 중복 확인.( 유효성 검사 통과 시, true )
 	private boolean validateEmailDuplicate(String email) 
 			throws ClassNotFoundException, SQLException {

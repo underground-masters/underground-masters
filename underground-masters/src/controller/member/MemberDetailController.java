@@ -3,6 +3,7 @@ package controller.member;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import controller.common.NavbarController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,7 +12,7 @@ import model.member.Member;
 import util.AuthenticationSession;
 import util.SceneChanger;
 
-public class MemberDetailController implements Initializable {
+public class MemberDetailController extends NavbarController implements Initializable {
 
 	private Member member;
 	

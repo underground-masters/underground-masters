@@ -35,9 +35,10 @@ public class MatchingDetailPopupController implements Initializable {
     }
 
     public void setMatchingData(MatchingDTO matchingDTO) {
-        this.matchingDTO = matchingDTO;
 
-        matchingDetailLabel.setText(
+        this.matchingDTO = matchingDTO;
+    	matchingDetailLabel.setText(
+
                 "상대 고수 : " + matchingDTO.getRequesterName() + '\n' +
                 "상대 재능 : " + matchingDTO.getRequestedTalent() + '\n' +
                 "상세 설명 : " + matchingDTO.getExchangeContent() + '\n' +

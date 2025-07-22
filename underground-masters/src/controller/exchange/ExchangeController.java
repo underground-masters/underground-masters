@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.ResourceBundle;
 
+import controller.common.NavbarController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
@@ -25,7 +26,7 @@ import model.exchange.ExchangeDTO;
 import model.member.Member;
 import util.AuthenticationSession;
 
-public class ExchangeController implements Initializable {
+public class ExchangeController extends NavbarController implements Initializable {
 	
 	private final ExchangeDAO exchangeDAO = new ExchangeDAO(); // 공유
 	
@@ -101,8 +102,7 @@ public class ExchangeController implements Initializable {
 	    
 	    
 	    String directory = "";
-//	    int memberId = member.getMemberId();
-	    int memberId = 1;
+	    int memberId = member.getMemberId();
 
 	    if (memberId == exchangeDTO.getMemberId().get()) { // 현재 로그인한 ID와 더블클릭한 데이터의 member ID가 같으면 MyExchangeDetailPopup 열기
 	    	directory = "/view/exchange/MyExchangeDetailPopup.fxml";

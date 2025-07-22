@@ -41,7 +41,7 @@ public class LoginController implements Initializable {
 		
 		try {
 			loginService(email, password);
-			SceneChanger.change(event, "/view/member/ExchangeListView.fxml", "교환의 장");
+			SceneChanger.change(event, "/view/exchange/ExchangeListView.fxml", "교환의 장");
 			
 		} catch (ValidationException ex) {
 			// 검증 예외: 메시지만 사용자에게 보여줌
