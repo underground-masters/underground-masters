@@ -13,6 +13,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import model.exchange.ExchangeDAO;
+import util.AlertUtil;
 
 public class CreateExchangePopupController implements Initializable {
 	
@@ -47,6 +48,11 @@ public class CreateExchangePopupController implements Initializable {
 			String description = descTextField.getText(); // 상세설명
 			
 			exchangeDAO.createExchange(selectedTalent, description); // DB에 저장
+			
+			AlertUtil.showSuccess(
+			    registerBtn.getScene().getWindow(),
+			    "교환글이 성공적으로 등록되었습니다."
+			);
 			
 			((Stage) registerBtn.getScene().getWindow()).close(); // 닫기 
 			

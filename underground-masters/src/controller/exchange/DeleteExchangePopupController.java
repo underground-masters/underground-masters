@@ -11,6 +11,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import model.exchange.ExchangeDAO;
 import model.exchange.ExchangeDTO;
+import util.AlertUtil;
 
 public class DeleteExchangePopupController implements Initializable {
 	
@@ -44,6 +45,11 @@ public class DeleteExchangePopupController implements Initializable {
 		
 		// 1. 삭제 로직
 		exchangeDAO.deleteExchange(exchangeDTO.getExchangeId().get());
+		
+		AlertUtil.showSuccess(
+			deleteBtn.getScene().getWindow(),
+		    "교환글이 삭제 되었습니다."
+		);
 		
 		// 2. 팝업 창 닫기
 	    ((Stage) deleteBtn.getScene().getWindow()).close();
