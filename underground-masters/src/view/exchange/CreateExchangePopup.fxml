@@ -22,9 +22,9 @@
 			</font>
 		</Label>
 		<ComboBox fx:id="talentComboBox" layoutX="50.0" layoutY="83.0" prefHeight="33.0" prefWidth="301.0" promptText="등록할 재능을 선택하세요" />
-		<TextField fx:id="descTextField" layoutX="50.0" layoutY="154.0" prefHeight="100.0" prefWidth="301.0" />
-		<Button fx:id="registerBtn" onAction="#onClickRegisterBtn" layoutX="154.0" layoutY="273.0" maxWidth="93.0" prefHeight="33.0" prefWidth="100.0" style="-fx-background-radius: 8; -fx-background-color: white; -fx-border-color: lightgray; -fx-font-size: 12;" text="등록" />
+		<Button fx:id="registerBtn" layoutX="154.0" layoutY="273.0" maxWidth="93.0" onAction="#onClickRegisterBtn" prefHeight="33.0" prefWidth="100.0" style="-fx-background-radius: 8; -fx-background-color: white; -fx-border-color: lightgray; -fx-font-size: 12;" text="등록" />
       <Label layoutX="57.0" layoutY="126.0" text="상세 설명 : " />
+      <TextArea fx:id="descTextField" layoutX="50.0" layoutY="154.0" prefHeight="100.0" prefWidth="301.0" />
 	</children>
 
 </AnchorPane>
