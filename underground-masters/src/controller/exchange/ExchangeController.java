@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-import controller.common.NavbarController;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
@@ -23,9 +22,10 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.exchange.ExchangeDAO;
 import model.exchange.ExchangeDTO;
-import util.SceneChanger;
+import model.member.Member;
+import util.AuthenticationSession;
 
-public class ExchangeController extends NavbarController implements Initializable {
+public class ExchangeController implements Initializable {
 	
 	private final ExchangeDAO exchangeDAO = new ExchangeDAO(); // 공유
 	
@@ -37,12 +37,17 @@ public class ExchangeController extends NavbarController implements Initializabl
 	
 	// 부서 데이터를 담을 ObservableList -> 테이블 뷰에 넣으려면 ObservableList 써야함 (JavaFX 컨트롤과 자동 동기화가 가능)
     private ObservableList<ExchangeDTO> exchangeList = null;
+    
+    private Member member; // 로그인한 사용자
 	
     /**
      * 교환글 목록 조회
      */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) { // 자동 호출
+		
+		// 0단계: 로그인한 사용자
+		member = AuthenticationSession.getInstance().getMember();
 		
 		// 1단계: 컬럼 매핑(바인딩)
 		StringProperty memberNameById = new SimpleStringProperty("김경아"); // TODO: memberId로 memberName가져오기
@@ -96,7 +101,8 @@ public class ExchangeController extends NavbarController implements Initializabl
 	    
 	    
 	    String directory = "";
-	    int memberId = 1; //TODO
+//	    int memberId = member.getMemberId();
+	    int memberId = 1;
 
 	    if (memberId == exchangeDTO.getMemberId().get()) { // 현재 로그인한 ID와 더블클릭한 데이터의 member ID가 같으면 MyExchangeDetailPopup 열기
 	    	directory = "/view/exchange/MyExchangeDetailPopup.fxml";
@@ -110,7 +116,7 @@ public class ExchangeController extends NavbarController implements Initializabl
 	    Parent popupRoot = loader.load();
 
 	    // 팝업화면 전용 컨트롤러 객체를 받아옴
-	    ExchangeDetailPopupController popupController = loader.getController();
+	    DetailPopupController popupController = loader.getController();
 	    popupController.setExchangeData(exchangeDTO); // 팝업 컨트롤러에 데이터 전달 (팝업 라벨에 값 세팅)
 	    
 	    
@@ -165,25 +171,4 @@ public class ExchangeController extends NavbarController implements Initializabl
 		
 	}
 
-	/*
-	@FXML
-	public void exchangeListBtn(ActionEvent event) {
-		SceneChanger.change(event, "/view/exchange/ExchangeListView.fxml", "교환의 장");
-	}
-	
-	@FXML
-	public void receiveListBtn(ActionEvent event) {
-		SceneChanger.change(event, "/view/matching/MatchingReceiveListView.fxml", "받은 목록");
-	}
-	
-	@FXML
-	public void sendListBtn(ActionEvent event) {
-		SceneChanger.change(event, "/view/matching/MatchingSendListView.fxml", "보낸 목록");
-	}
-	
-	@FXML
-	public void myPageBtn(ActionEvent event) {
-		SceneChanger.change(event, "/view/member/MyPageView.fxml", "마이 페이지");
-	}
-	*/
 }

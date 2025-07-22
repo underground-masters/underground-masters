@@ -1,5 +1,7 @@
 package model.matching;
 
+import java.util.Date;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,5 +15,6 @@ public class MatchingDTO {
     private String requesterName;
     private String requesterEmail;
     private String exchangeTitle;
-    private String exchangeContent;
+    private String exchangeContent;  
+    private Date createAt;
 }

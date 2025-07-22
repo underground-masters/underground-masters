@@ -58,14 +58,7 @@ public class MatchingDAO {
         return parseMatchingResultSet(rs);
     }
 
-    /**
-     * 매칭 등록 메서드
-     */
-    public void createMatching(int exchangeId, String talentName) throws ClassNotFoundException, SQLException {
-        String insertStmt = "{ call create_matching(?, ?, ?) }";
-        int memberId = 1; // TODO: AuthenticationSession.getInstance().getMember().getMemberId()로 바꾸기
-        DBUtil.dbExecuteUpdate(insertStmt, exchangeId, talentName, memberId);
-    }
+
 
     /**
      * 공통 ResultSet 파싱 메서드
@@ -89,4 +82,18 @@ public class MatchingDAO {
 
         return list;
     }
+    
+	/**
+	 * 매칭 등록 메서드
+	 * @throws SQLException 
+	 * @throws ClassNotFoundException 
+	 */
+	public void createMatching(int exchangeId, String talentName) throws ClassNotFoundException, SQLException {
+		String insertStmt = "{ call create_matching(?, ?, ?) }"; // exchangeId, talentName, memberId로 저장
+//		int memberId = AuthenticationSession.getInstance().getMember().getMemberId(); TODO:
+		int memberId = 1;
+		
+		// DB에 교환글 등록하기
+		DBUtil.dbExecuteUpdate(insertStmt, exchangeId, talentName, memberId);
+	}
 }

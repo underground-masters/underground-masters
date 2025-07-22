@@ -16,7 +16,7 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.exchange.ExchangeDTO;
 
-public class MyExchangeDetailPopupController extends ExchangeDetailPopupController {
+public class MyExchangeDetailPopupController extends DetailPopupController {
 	
 	// MyExchangeDetailPopup.fxml에서 찾아서 등록
 	@FXML private Label exchangeDetailLabel;
