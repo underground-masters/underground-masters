@@ -22,6 +22,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.exchange.ExchangeDAO;
 import model.exchange.ExchangeDTO;
+import util.AuthenticationSession;
 
 public class ExchangeController implements Initializable {
 	
@@ -94,7 +95,7 @@ public class ExchangeController implements Initializable {
 	    
 	    
 	    String directory = "";
-	    int memberId = 1; //TODO
+	    int memberId = AuthenticationSession.getInstance().getMember().getMemberId();
 
 	    if (memberId == exchangeDTO.getMemberId().get()) { // 현재 로그인한 ID와 더블클릭한 데이터의 member ID가 같으면 MyExchangeDetailPopup 열기
 	    	directory = "/view/exchange/MyExchangeDetailPopup.fxml";
@@ -108,7 +109,7 @@ public class ExchangeController implements Initializable {
 	    Parent popupRoot = loader.load();
 
 	    // 팝업화면 전용 컨트롤러 객체를 받아옴
-	    ExchangeDetailPopupController popupController = loader.getController();
+	    DetailPopupController popupController = loader.getController();
 	    popupController.setExchangeData(exchangeDTO); // 팝업 컨트롤러에 데이터 전달 (팝업 라벨에 값 세팅)
 	    
 	    

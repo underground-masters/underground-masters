@@ -4,9 +4,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import lombok.Getter;
 import model.exchange.ExchangeDTO;
+import model.matching.MatchingDTO;
 
 @Getter
-public abstract class ExchangeDetailPopupController implements Initializable {
+public abstract class DetailPopupController implements Initializable {
 	
 	// 교환글 목록에서 전달 받을 데이터
 	private ExchangeDTO exchangeDTO;
@@ -30,5 +31,9 @@ public abstract class ExchangeDetailPopupController implements Initializable {
         );
     }
     
+    /**
+     * ExchangeDTO의 데이터 넣는 메서드
+     * @param exchangeDTO
+     */
     public abstract void setExchangeData(ExchangeDTO exchangeDTO);
 }

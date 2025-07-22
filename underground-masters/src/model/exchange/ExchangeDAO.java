@@ -10,6 +10,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import util.AuthenticationSession;
 import util.DBUtil;
 
 public class ExchangeDAO {
@@ -57,7 +58,8 @@ public class ExchangeDAO {
 	public ObservableList<String> findTalentList() throws ClassNotFoundException, SQLException {
 		ObservableList<String> talentList = FXCollections.observableArrayList(); // 내가 보유하고 있는 재능을 담을 리스트
 		
-		int memberId = 1; // TODO: 임시 데이터(현재 접속한 ID값으로 바꾸기)
+//		int memberId = 1; // TODO: 임시 데이터(현재 접속한 ID값으로 바꾸기)
+		int memberId = AuthenticationSession.getInstance().getMember().getMemberId();
 		
 		// DB에서 재능 목록 불러오기
 		String selectStmt = "SELECT NAME FROM MASTERS.TALENT WHERE MEMBER_ID = ?";
@@ -89,7 +91,8 @@ public class ExchangeDAO {
 	 */
 	public void createExchange(String title, String description) throws ClassNotFoundException, SQLException {
 		String insertStmt = "{ call create_exchange(?, ?, ?) }"; // title(재능명), description, member_id로 저장
-		int memberId = 2; //TODO: 임시 데이터(현재 접속한 ID값으로 바꾸기)
+//		int memberId = 2; //TODO: 임시 데이터(현재 접속한 ID값으로 바꾸기)
+		int memberId = AuthenticationSession.getInstance().getMember().getMemberId();
 		
 		// DB에 교환글 등록하기
 		DBUtil.dbExecuteUpdate(insertStmt, title, description, memberId);
