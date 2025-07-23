@@ -47,9 +47,4 @@ public class MatchingSendController extends NavbarController implements Initiali
             e.printStackTrace();
         }
     }
-
-    @FXML
-    public void onShowDetail() {
-        // 나중에 상세 팝업 기능 구현 예정
-    }
 }
