@@ -10,7 +10,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.stage.Stage;
 import model.exchange.ExchangeDAO;
 import model.exchange.ExchangeDTO;
@@ -22,7 +22,7 @@ public class NotMyExchangeDetailPopupController extends DetailPopupController {
 	private final MatchingDAO matchingDAO = new MatchingDAO();
 	
 	// MyExchangeDetailPopup.fxml에서 찾아서 등록
-	@FXML private Label exchangeDetailLabel;
+	@FXML private TextArea exchangeDetailLabel;
 	@FXML private ComboBox<String> talentComboBox;
 	@FXML private Button requestBtn;
 	
@@ -37,7 +37,8 @@ public class NotMyExchangeDetailPopupController extends DetailPopupController {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}	
+		}
+		exchangeDetailLabel.setFocusTraversable(false); // 포커스 안 받게 설정
 	}
 	
 	/**

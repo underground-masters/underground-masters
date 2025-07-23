@@ -7,14 +7,14 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import javafx.scene.control.TextArea;
 import model.matching.MatchingDAO;
 import model.matching.MatchingDTO;
 
 public class MatchingDetailPopupController implements Initializable {
 
-    @FXML private Label matchingDetailLabel;
+    @FXML private TextArea matchingDetailLabel;
     @FXML private Button acceptBtn;
     @FXML private Button rejectBtn;
 

@@ -1,9 +1,9 @@
 package controller.exchange;
 
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
 import lombok.Getter;
 import model.exchange.ExchangeDTO;
+import javafx.scene.control.TextArea;
 
 @Getter
 public abstract class DetailPopupController implements Initializable {
@@ -21,7 +21,7 @@ public abstract class DetailPopupController implements Initializable {
 	/*
 	 * 라벨에 data 넣기
 	 */
-    public void doLabelSetting(Label label, ExchangeDTO exchangeDTO) {
+    public void doLabelSetting(TextArea label, ExchangeDTO exchangeDTO) {
         label.setText(
             "고수 : " + exchangeDTO.getMemberName().get() + '\n' +
             "재능 : " + exchangeDTO.getTitle().get() + '\n' +

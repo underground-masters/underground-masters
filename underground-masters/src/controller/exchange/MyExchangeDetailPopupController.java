@@ -10,7 +10,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -19,7 +19,7 @@ import model.exchange.ExchangeDTO;
 public class MyExchangeDetailPopupController extends DetailPopupController {
 	
 	// MyExchangeDetailPopup.fxml에서 찾아서 등록
-	@FXML private Label exchangeDetailLabel;
+	@FXML private TextArea exchangeDetailLabel;
 	@FXML private Button deleteBtn;
 	
 	
