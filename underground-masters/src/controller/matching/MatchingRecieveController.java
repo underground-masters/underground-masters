@@ -14,7 +14,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -74,7 +73,7 @@ public class MatchingRecieveController extends NavbarController implements Initi
 	    if (event.getClickCount() != 2)
 	        return;
 	    
-	    // 테이블뷰에서 현재 선택된 ExchangeDTO 객체를 꺼냄
+	    // 테이블뷰에서 현재 선택된 MatchingDTO 객체를 꺼냄
 	    MatchingDTO matchingDTO = MatchingTableView.getSelectionModel().getSelectedItem();
 
 	    // 1. FXML 파일을 로딩할 FXMLLoader 객체를 생성 (이 시점에 컨트롤러 객체 "생성"도 준비됨)

@@ -29,7 +29,6 @@ public class MatchingHistoryController extends NavbarController implements Initi
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		member = AuthenticationSession.getInstance().getMember();		
 		memberDao = MemberDAO.getInstance();
 		

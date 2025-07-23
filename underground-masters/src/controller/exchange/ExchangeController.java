@@ -7,8 +7,6 @@ import java.util.Date;
 import java.util.ResourceBundle;
 
 import controller.common.NavbarController;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

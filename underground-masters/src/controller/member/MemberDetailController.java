@@ -22,7 +22,6 @@ public class MemberDetailController extends NavbarController implements Initiali
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
 		member = AuthenticationSession.getInstance().getMember();
 		
 		nameLabel.setText(member.getName());

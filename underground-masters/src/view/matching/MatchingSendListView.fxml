@@ -25,7 +25,7 @@
       </Label>
 
       <!-- 테이블 -->
-      <TableView fx:id="MatchingTableView" layoutY="188.0" onMouseClicked="#onShowDetail" prefHeight="526.0" prefWidth="540.0">
+      <TableView fx:id="MatchingTableView" layoutY="188.0" prefHeight="526.0" prefWidth="540.0">
          <columns>
             <TableColumn fx:id="talentName" prefWidth="222.0" text="상대 재능" />
             <TableColumn fx:id="memberName" prefWidth="110.0" text="상대 고수" />

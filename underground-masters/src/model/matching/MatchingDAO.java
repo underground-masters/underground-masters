@@ -72,7 +72,7 @@ public class MatchingDAO {
             dto.setMatchingId(rs.getInt("MATCHING_ID"));
             dto.setRequestedTalent(rs.getString("REQUESTED_TALENT"));
             dto.setStatus(rs.getString("STATUS"));
-            dto.setRequestDate(rs.getString("REQUEST_DATE"));
+            dto.setRequestDate(rs.getDate("REQUEST_DATE"));
             dto.setRequesterName(rs.getString("REQUESTER_NAME"));
             dto.setRequesterEmail(rs.getString("REQUESTER_EMAIL"));
             dto.setExchangeTitle(rs.getString("EXCHANGE_TITLE"));
