@@ -4,7 +4,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import lombok.Getter;
 import model.exchange.ExchangeDTO;
-import model.matching.MatchingDTO;
 
 @Getter
 public abstract class DetailPopupController implements Initializable {

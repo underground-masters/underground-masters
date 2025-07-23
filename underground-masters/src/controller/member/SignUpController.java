@@ -30,8 +30,6 @@ public class SignUpController implements Initializable{
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@FXML
@@ -68,7 +66,6 @@ public class SignUpController implements Initializable{
             // 검증 예외: 메시지만 사용자에게 보여줌
             lblError.setText(ex.getMessage());
         } catch (ClassNotFoundException | SQLException ex) {
-			// TODO Auto-generated catch block
 			ex.printStackTrace();
 			lblError.setText("회원가입 처리 중 오류가 발생했습니다.");
 		}
