@@ -27,6 +27,8 @@ public class LoginController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		memberDao = MemberDAO.getInstance();
+		//Enter키 로그인 20250723_ycson
+		passwordField.setOnAction(e -> loginAction(e));
 	}
 
 	@FXML

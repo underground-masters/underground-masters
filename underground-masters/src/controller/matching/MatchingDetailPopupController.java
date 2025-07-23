@@ -42,6 +42,11 @@ public class MatchingDetailPopupController implements Initializable {
             "등록일 : " + dto.getRequestDate() + '\n' +
             "상태 : " + dto.getStatus()
         );
+        
+        if ("수락".equals(dto.getStatus()) || "거절".equals(dto.getStatus())) {
+            acceptBtn.setVisible(false);
+            rejectBtn.setVisible(false);
+        }
     }
 
     /**

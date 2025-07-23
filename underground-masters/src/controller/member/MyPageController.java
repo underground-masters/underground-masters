@@ -35,4 +35,13 @@ public class MyPageController extends NavbarController implements Initializable 
 		SceneChanger.change(event, "/view/member/MatchingHistory.fxml", "매칭 이력");
 	}
 	
+	@FXML
+	//로그아웃 기능 추가_20250723_ycson
+	public void logoutAction(javafx.event.ActionEvent event) {
+	    // 1. 인증 세션 초기화
+	    AuthenticationSession.getInstance().setMember(null);
+	    // 2. 로그인 화면으로 전환
+	    SceneChanger.change(event, "/view/member/LoginView.fxml", "로그인");
+	}
+	
 }
