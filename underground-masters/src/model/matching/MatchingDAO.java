@@ -90,7 +90,7 @@ public class MatchingDAO {
 	 * @throws ClassNotFoundException 
 	 */
 	public void createMatching(int exchangeId, String talentName) throws ClassNotFoundException, SQLException {
-		String insertStmt = "{ call create_matching(?, ?, ?) }"; // exchangeId, talentName, memberId로 저장
+		String insertStmt = "{ call SP_create_matching(?, ?, ?) }"; // exchangeId, talentName, memberId로 저장
 		int memberId = AuthenticationSession.getInstance().getMember().getMemberId();
 		
 		// DB에 교환글 등록하기

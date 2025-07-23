@@ -88,7 +88,7 @@ public class ExchangeDAO {
 	 * @throws ClassNotFoundException 
 	 */
 	public void createExchange(String title, String description) throws ClassNotFoundException, SQLException {
-		String insertStmt = "{ call create_exchange(?, ?, ?) }"; // title(재능명), description, member_id로 저장
+		String insertStmt = "{ call SP_create_exchange(?, ?, ?) }"; // title(재능명), description, member_id로 저장
 		int memberId = AuthenticationSession.getInstance().getMember().getMemberId();
 		
 		// DB에 교환글 등록하기
@@ -102,7 +102,7 @@ public class ExchangeDAO {
 	 * @throws ClassNotFoundException 
 	 */
 	public void deleteExchange(int exchangeId) throws ClassNotFoundException, SQLException {
-		String deleteStmt = "{ call delete_exchange(?) }";
+		String deleteStmt = "{ call SP_delete_exchange(?) }";
 		
 		// DB에서 교환글 삭제하기
 		DBUtil.dbExecuteUpdate(deleteStmt, exchangeId);

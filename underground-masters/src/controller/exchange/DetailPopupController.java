@@ -23,7 +23,7 @@ public abstract class DetailPopupController implements Initializable {
 	 */
     public void doLabelSetting(Label label, ExchangeDTO exchangeDTO) {
         label.setText(
-            "고수 : " + exchangeDTO.getMemberId().get() + '\n' +
+            "고수 : " + exchangeDTO.getMemberName().get() + '\n' +
             "재능 : " + exchangeDTO.getTitle().get() + '\n' +
             "상세 설명 : " + exchangeDTO.getContent().get() + '\n' +
             "등록일 : " + exchangeDTO.getCreateAt().get() + '\n'
