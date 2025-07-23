@@ -38,7 +38,6 @@ public class MatchingDetailPopupController implements Initializable {
         matchingDetailLabel.setText(
             "상대 고수 : " + dto.getRequesterName() + '\n' +
             "상대 재능 : " + dto.getRequestedTalent() + '\n' +
-            "상세 설명 : " + dto.getExchangeContent() + '\n' +
             "등록일 : " + dto.getRequestDate() + '\n' +
             "상태 : " + dto.getStatus()
         );
