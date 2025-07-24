@@ -28,7 +28,7 @@ public class MatchingSendController extends NavbarController implements Initiali
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        talentName.setCellValueFactory(new PropertyValueFactory<>("requestedTalent"));
+        talentName.setCellValueFactory(new PropertyValueFactory<>("exchangeTitle"));
         memberName.setCellValueFactory(new PropertyValueFactory<>("requesterName"));
         status.setCellValueFactory(new PropertyValueFactory<>("status"));
         requestDate.setCellValueFactory(new PropertyValueFactory<>("requestDate"));
