@@ -5,6 +5,9 @@ import java.sql.SQLException;
 import model.member.Member;
 import model.member.MemberDAO;
 
+/*
+ * 작성자: 정의탁
+ */
 public class AuthenticationSession {
 	
 	private static AuthenticationSession instance = new AuthenticationSession();

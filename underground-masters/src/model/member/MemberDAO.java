@@ -7,6 +7,10 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import util.DBUtil;
 
+
+/**
+ * 작성자: 정의탁
+ */
 public class MemberDAO {
 
 	private static MemberDAO instance = new MemberDAO();

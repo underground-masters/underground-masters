@@ -3,6 +3,10 @@ package model.member;
 import lombok.Builder;
 import lombok.Getter;
 
+/**
+ * 작성자: 정의탁
+ */
+
 @Getter
 @Builder
 public class Member {

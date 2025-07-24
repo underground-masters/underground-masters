@@ -16,6 +16,9 @@ import util.AlertUtil;
 import util.DBUtil;
 import util.SceneChanger;
 
+/**
+ * 작성자: 정의탁
+ */
 public class SignUpController implements Initializable{
 
 	@FXML private TextField nameField;

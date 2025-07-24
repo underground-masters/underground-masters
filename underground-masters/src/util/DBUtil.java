@@ -6,6 +6,9 @@ import java.util.Properties;
 
 import com.sun.rowset.CachedRowSetImpl;
 
+/*
+ * 작성자: 정의탁, 김경아, 손윤찬
+ */
 public class DBUtil {
 	private static final Properties prop = new Properties();
 

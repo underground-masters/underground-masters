@@ -12,6 +12,9 @@ import model.member.Member;
 import util.AuthenticationSession;
 import util.SceneChanger;
 
+/**
+ * 작성자: 정의탁
+ */
 public class MemberDetailController extends NavbarController implements Initializable {
 
 	private Member member;

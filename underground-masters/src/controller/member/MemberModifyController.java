@@ -18,6 +18,9 @@ import util.AuthenticationSession;
 import util.DBUtil;
 import util.SceneChanger;
 
+/**
+ * 작성자: 정의탁
+ */
 public class MemberModifyController implements Initializable {
 
 	private Member member;

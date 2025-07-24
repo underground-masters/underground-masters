@@ -6,6 +6,9 @@ import javafx.scene.control.ButtonType;
 import javafx.stage.Modality;
 import javafx.stage.Window;
 
+/*
+ * 작성자: 정의탁
+ */
 public class AlertUtil {
 
     private AlertUtil() {

@@ -16,6 +16,9 @@ import model.member.Member;
 import model.member.MemberDAO;
 import util.AuthenticationSession;
 
+/**
+ * 작성자: 정의탁
+ */
 public class MatchingHistoryController extends NavbarController implements Initializable {
 
 	private Member member;

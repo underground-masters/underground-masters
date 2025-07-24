@@ -15,6 +15,9 @@ import model.member.MemberDAO;
 import util.AuthenticationSession;
 import util.SceneChanger;
 
+/**
+ * 작성자: 정의탁
+ */
 public class LoginController implements Initializable {
 
 	private MemberDAO memberDao;

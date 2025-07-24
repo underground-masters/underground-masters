@@ -10,6 +10,9 @@ import javafx.scene.Scene;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+/*
+ * 작성자: 정의탁
+ */
 public class SceneChanger {
 
 	public static void change(ActionEvent event, String fxmlPath, String title) {
