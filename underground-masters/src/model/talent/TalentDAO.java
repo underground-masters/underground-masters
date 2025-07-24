@@ -4,6 +4,9 @@ import java.sql.*;
 import java.util.*;
 import util.DBUtil;
 
+/*
+ * 작성자: 손윤찬
+ */
 public class TalentDAO {
 
     public List<TalentDTO> findTalentListByMemberId(int memberId) {

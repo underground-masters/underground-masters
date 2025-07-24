@@ -16,6 +16,9 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import model.exchange.ExchangeDTO;
 
+/*
+ * 작성자: 김경아
+ */
 public class MyExchangeDetailPopupController extends DetailPopupController {
 	
 	// MyExchangeDetailPopup.fxml에서 찾아서 등록

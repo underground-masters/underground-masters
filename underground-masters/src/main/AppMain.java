@@ -6,6 +6,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
+/*
+ * 작성자: 정의탁, 김경아, 손윤찬
+ */
 public class AppMain extends Application {
 	
 	// JavaFX 애플리케이션의 시작 지점

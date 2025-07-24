@@ -11,6 +11,9 @@ import javafx.collections.ObservableList;
 import util.AuthenticationSession;
 import util.DBUtil;
 
+/*
+ * 작성자: 김경아
+ */
 public class ExchangeDAO {
 	
 	/**

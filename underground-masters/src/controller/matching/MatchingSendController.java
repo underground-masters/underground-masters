@@ -16,6 +16,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import model.matching.*;
 import util.*;
 
+/*
+ * 작성자: 손윤찬
+ */
 public class MatchingSendController extends NavbarController implements Initializable {
 
     @FXML private TableView<MatchingDTO> MatchingTableView;

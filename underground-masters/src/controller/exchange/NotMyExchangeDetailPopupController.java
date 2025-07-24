@@ -16,6 +16,9 @@ import model.exchange.ExchangeDAO;
 import model.exchange.ExchangeDTO;
 import model.matching.MatchingDAO;
 
+/*
+ * 작성자: 김경아
+ */
 public class NotMyExchangeDetailPopupController extends DetailPopupController {
 	
 	private final ExchangeDAO exchangeDAO = new ExchangeDAO(); // 공유

@@ -10,6 +10,9 @@ import javafx.beans.property.StringProperty;
 import lombok.Builder;
 import lombok.Getter;
 
+/*
+ * 작성자: 김경아
+ */
 @Getter
 @Builder
 public class ExchangeDTO {

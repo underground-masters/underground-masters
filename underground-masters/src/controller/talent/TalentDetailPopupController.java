@@ -7,6 +7,9 @@ import javafx.stage.Stage;
 import model.talent.*;
 import util.AlertUtil;
 
+/*
+ * 작성자: 손윤찬
+ */
 public class TalentDetailPopupController {
 
     @FXML

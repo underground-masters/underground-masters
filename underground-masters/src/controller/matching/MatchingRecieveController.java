@@ -37,6 +37,9 @@ public class MatchingRecieveController extends NavbarController implements Initi
     
     private final MatchingDAO dao = new MatchingDAO();
 
+    /*
+     * 작성자: 손윤찬
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
     	member = AuthenticationSession.getInstance().getMember(); // 로그인한 사용자
@@ -48,7 +51,10 @@ public class MatchingRecieveController extends NavbarController implements Initi
 
         loadMatchingList();
     }
-
+    
+    /*
+     * 작성자: 손윤찬
+     */
     public void loadMatchingList() {
         int memberId = AuthenticationSession.getInstance().getMember().getMemberId();
 
@@ -63,9 +69,7 @@ public class MatchingRecieveController extends NavbarController implements Initi
 
     /**
 	 * 테이블뷰의 행을 더블클릭했을 때 팝업창을 띄워 매칭 요청 상세를 보여주는 메서드
-	 * @throws SQLException 
-	 * @throws ClassNotFoundException 
-	 * @throws IOException 
+	 * 작성자 : 김경아
 	 */
     @FXML
     private void onShowDetailPopupBtn(MouseEvent event) throws ClassNotFoundException, SQLException, IOException {

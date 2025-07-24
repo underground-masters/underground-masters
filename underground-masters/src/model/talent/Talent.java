@@ -1,5 +1,8 @@
 package model.talent;
 
+/*
+ * 작성자: 손윤찬
+ */
 public class Talent {
     private int talentId;
     private int memberId;

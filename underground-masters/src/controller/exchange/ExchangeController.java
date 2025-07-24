@@ -24,6 +24,9 @@ import model.exchange.ExchangeDTO;
 import model.member.Member;
 import util.AuthenticationSession;
 
+/*
+ * 작성자: 김경아
+ */
 public class ExchangeController extends NavbarController implements Initializable {
 	
 	private final ExchangeDAO exchangeDAO = new ExchangeDAO(); // 공유

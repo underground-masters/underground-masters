@@ -86,8 +86,7 @@ public class MatchingDAO {
     
 	/**
 	 * 매칭 등록 메서드
-	 * @throws SQLException 
-	 * @throws ClassNotFoundException 
+	 * 작성자 : 김경아
 	 */
 	public void createMatching(int exchangeId, String talentName) throws ClassNotFoundException, SQLException {
 		String insertStmt = "{ call SP_create_matching(?, ?, ?) }"; // exchangeId, talentName, memberId로 저장

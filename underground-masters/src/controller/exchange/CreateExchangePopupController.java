@@ -1,5 +1,8 @@
 package controller.exchange;
 
+/*
+ * 작성자: 김경아
+ */
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;

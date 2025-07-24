@@ -12,6 +12,9 @@ import javafx.scene.control.TextArea;
 import model.matching.MatchingDAO;
 import model.matching.MatchingDTO;
 
+/*
+ * 작성자: 김경아
+ */
 public class MatchingDetailPopupController implements Initializable {
 
     @FXML private TextArea matchingDetailLabel;

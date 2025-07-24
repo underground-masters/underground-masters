@@ -13,6 +13,9 @@ import model.exchange.ExchangeDAO;
 import model.exchange.ExchangeDTO;
 import util.AlertUtil;
 
+/*
+ * 작성자: 김경아
+ */
 public class DeleteExchangePopupController implements Initializable {
 	
 	private final ExchangeDAO exchangeDAO = new ExchangeDAO(); // 공유

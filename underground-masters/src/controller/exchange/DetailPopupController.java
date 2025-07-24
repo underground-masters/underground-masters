@@ -5,6 +5,9 @@ import lombok.Getter;
 import model.exchange.ExchangeDTO;
 import javafx.scene.control.TextArea;
 
+/*
+ * 작성자: 김경아
+ */
 @Getter
 public abstract class DetailPopupController implements Initializable {
 	

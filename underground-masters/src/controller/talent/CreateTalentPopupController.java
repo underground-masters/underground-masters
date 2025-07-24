@@ -10,6 +10,9 @@ import model.talent.TalentDAO;
 import util.AlertUtil;
 import util.AuthenticationSession;
 
+/*
+ * 작성자: 손윤찬
+ */
 public class CreateTalentPopupController {
 
     @FXML

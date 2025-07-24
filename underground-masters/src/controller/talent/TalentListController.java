@@ -21,6 +21,9 @@ import java.util.List;
 import controller.common.NavbarController;
 import javafx.beans.property.SimpleStringProperty;
 
+/*
+ * 작성자: 손윤찬
+ */
 public class TalentListController extends NavbarController {
 
 	@FXML
