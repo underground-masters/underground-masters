@@ -28,6 +28,7 @@ import util.AuthenticationSession;
 public class MatchingRecieveController extends NavbarController implements Initializable {
 
     @FXML private TableView<MatchingDTO> MatchingTableView;
+    @FXML private TableColumn<MatchingDTO, String> myTalentName;
     @FXML private TableColumn<MatchingDTO, String> talentName;
     @FXML private TableColumn<MatchingDTO, String> memberName;
     @FXML private TableColumn<MatchingDTO, String> status;
@@ -44,6 +45,7 @@ public class MatchingRecieveController extends NavbarController implements Initi
     public void initialize(URL location, ResourceBundle resources) {
     	member = AuthenticationSession.getInstance().getMember(); // 로그인한 사용자
     	
+    	myTalentName.setCellValueFactory(new PropertyValueFactory<>("exchangeTitle"));
         talentName.setCellValueFactory(new PropertyValueFactory<>("requestedTalent"));
         memberName.setCellValueFactory(new PropertyValueFactory<>("requesterName"));
         status.setCellValueFactory(new PropertyValueFactory<>("status"));

@@ -19,8 +19,8 @@
    
    	  <TableView fx:id="matchingHistoryTableView" layoutY="189.0" prefHeight="526.0" prefWidth="540.0">
          <columns>
-            <TableColumn fx:id="myTalentName" prefWidth="140.0" text="나의 재능" />
-            <TableColumn fx:id="otherTalentName" prefWidth="140.0" text="상대 재능" />
+            <TableColumn fx:id="myTalentName" prefWidth="140.0" text="상대 재능" />
+            <TableColumn fx:id="otherTalentName" prefWidth="140.0" text="나의 재능" />
             <TableColumn fx:id="otherMemberName" prefWidth="100.0" text="상대 고수" />
             <TableColumn fx:id="otherPhoneNumber" prefWidth="160.0" text="연락처" />
          </columns>
