@@ -22,6 +22,12 @@
 ## 와이어프레임
 <img width="1098" height="631" alt="Image" src="https://github.com/user-attachments/assets/57709aed-0c74-42e1-ad32-29aee0f4e7c4" />
 
+## 컨벤션
+### 코딩 컨벤션
+<img width="1313" height="834" alt="Image" src="https://github.com/user-attachments/assets/21627154-7981-4d7b-886d-a0efd62c0c59" />
+
+### 깃 컨벤션
+<img width="974" height="621" alt="Image" src="https://github.com/user-attachments/assets/7e7d9f2a-faa1-4c68-8483-fb9aa1bc7da4" />
 
 ## 노션
 [재야의 고수들 노션 바로가기](https://spring-lychee-f7f.notion.site/22d156708e2e801ebfcefa6c8968238f)
