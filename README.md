@@ -45,3 +45,11 @@
 #### 라이브러리
 - lombok-1.18.38.jar
 - ojdbc8.jar
+
+## 팀원소개
+|<img src="https://avatars.githubusercontent.com/u/109258144?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/181330888?v=4" width="150" height="150"/>|<img src="https://avatars.githubusercontent.com/u/104715028?v=4" width="150" height="150"/>|
+|:-:|:-:|:-:|
+|kimkyongah<br/>[@hagnoykmik](https://github.com/hagnoykmik)|uitak<br/>[@uitak-dev](https://github.com/uitak-dev)|ycson<br/>[@syc2618](https://github.com/syc2618)|
+
+<sub>[Table made by TIT](https://team-info-table.seondal.kr/)</sub>
+
